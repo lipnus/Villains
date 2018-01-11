@@ -21,4 +21,5 @@ from villains import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^$', views.index, name='index'),
+    url(r'^register/$', views.register, name='register'),
 ]
