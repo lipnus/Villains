@@ -1,0 +1,46 @@
+@charset "utf-8";
+a{
+    text-decoration: none;
+    color:black;
+}
+header{
+    margin-left:25%;
+    margin-right:25%;
+    text-align:right;
+    width:808px;
+}
+.register_villain{
+    color:#FF3A1A;
+    padding-right:10px;
+}
+.title{
+    color:#FF3A1A;
+    font-size:40px;
+    padding-top:20px;
+    padding-bottom:20px;
+    text-align:left;
+}
+.highlight{
+    color:#FF3A1A;
+}
+.detail{
+    width:800px;
+    height:400px;
+    padding-top:0;
+}
+.submit{
+    width:808px;
+    height:100px;
+    text-align: center;
+}
+.main{
+    margin-left:25%;
+    margin-right:25%;
+    width:808px;
+    height:600px;
+    line-height:30px;
+}
+.bomb{
+    position: absolute;
+    right:0px;
+}

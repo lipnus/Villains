@@ -1,14 +1,41 @@
 <!DOCTYPE html>
 
 {% load staticfiles %}
-
+{% load static %}
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Villains</title>
+    <title>빌런 등록</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'villains/main.css' %}">
   </head>
+<!--
+{% if messages %}
+<script>
+    alert('{{ message }}');
+</script>
+{% endif %}   등록되었음을 알려주는 메시지 띄울 예정-->
   <body>
-    <p>빌런등록창</p>
-
+    <header>
+        <a href="register/" title  ="글쓰기" class="register_villain">빌런 등록</a>
+        <a href="login/" title  ="로그인">로그인</a>
+        <a href="register_user/" title  ="회원가입">회원가입</a><br>
+        <div class ="title">
+                <p1>Villains</p1>
+        </div>
+    </header>
+    <div class="main">
+        <p3 class ="highlight">빌런 프로필</p3><br>
+        <form method = "POST"> 
+            {% csrf_token %}
+            <p3>이름 </p3>{{form.villain_name}} &nbsp;&nbsp;
+            <p3>소속 </p3>{{form.univ}} {{form.major}} &nbsp; &nbsp;
+            <p3>수업 </p3>{{form.class_name}}
+            <hr>
+            <p3 class = "highlight">활약상</p3>
+            {{form.bomb}}
+            <br>{{form.content}}<br>
+            <input type = "submit" value = "등록하기" class="submit"></input>
+        </form>
+    </div>
   </body>
 </html>
