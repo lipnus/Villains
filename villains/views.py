@@ -9,23 +9,10 @@ from .models import *
 
 
 def index(request):
+    return render(request, "villains/index.html", {})
+
+def test(request):
     return render(request, "villains/default.html", {})
-    # return render(request, "villains/default.html", {})
 
-def register(request):
-    if request.method=='POST':
-        form = VillainForm(request.POST)
-        if form.is_valid():
-            newVillain=form.save()
-            newVillain.writter_id = request.user.get_username()
-            newVillain.generate()
-            messages.info(request, '성공적으로 등록되었습니다!')
-        else:
-            messages.info(request, '등록에 실패하였습니다')
-        return redirect('/')
-    else:
-        form = VillainForm()
- 
-    return render(request, 'villains/register_villain.html', {'form': form})
-
-
+def register_villain(request):
+    return render(request, "villains/register_villain.html", {})
