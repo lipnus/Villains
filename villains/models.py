@@ -8,7 +8,7 @@ from django.contrib.auth.models import User
 # from django.conf import settings
 
 class Villain(models.Model):
-    writter_id = models.OneToOneField(User, on_delete=models.CASCADE) # models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    writter_id = models.CharField(max_length = 24) # models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     villain_name = models.CharField(max_length = 24)
     univ = models.CharField(max_length = 24)
     major = models.CharField(max_length = 24)
@@ -20,7 +20,8 @@ class Villain(models.Model):
             MinValueValidator(1)
         ]
     )
-    content = models.CharField(max_length = 3000)
+    agree = models.IntegerField(default=0) #인정
+    content = models.CharField(max_length = 3000) #본문내용
     update_date = models.DateTimeField(auto_now=True) #자동으로 현재시간 추가
 
 
@@ -31,4 +32,4 @@ class Villain(models.Model):
 
     # admin페이지에서 미리보기
     def __str__(self):
-        return "빌런:%s, 글쓴이:%s" % (self.villain_name, self.writter_id)
+        return "빌런:%s (%s)" % (self.villain_name, self.update_date)

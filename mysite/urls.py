@@ -24,4 +24,6 @@ urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^test/$', views.test, name='test'),
     url(r'^register_villain/$', views.register_villain, name='register_villain'),
+    # url(r'^register_villain/$', views.register_villain, name='register_villain'),
+    # url(r'^post_villain/$', views.post_villain, name='post_villain'),
 ]
