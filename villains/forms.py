@@ -1,7 +1,7 @@
 from django.forms import ModelForm
 from .models import Villain
 from django import forms
- 
+
 class VillainForm(ModelForm):
     class Meta:
         model = Villain
