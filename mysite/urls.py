@@ -19,6 +19,7 @@ from django.urls import path
 from django.conf.urls import url
 from villains import views
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^$', views.index, name='index'),
@@ -26,4 +27,6 @@ urlpatterns = [
     url(r'^register_villain/$', views.register_villain, name='register_villain'),
     # url(r'^register_villain/$', views.register_villain, name='register_villain'),
     # url(r'^post_villain/$', views.post_villain, name='post_villain'),
+    url(r'^test/login/', views.signin, name='login'),
+    url(r'^test/join/', views.signup, name='join'),
 ]

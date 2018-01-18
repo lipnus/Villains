@@ -1,0 +1,20 @@
+<body>
+	<style>
+	div {
+		width: 1000px;
+	}
+	</style>
+	<div>
+{% block title %}로그인 하세요.{% endblock %}
+
+{% block content %}
+  <form method="post"> {% csrf_token %}
+    ID <input name="username" id="username" type="text" /><br />
+    PASSWORD <input name="password" id="password" type="password" /><br />
+    <button type="submit">로그인</button>
+    <input type="button" onclick="location.href='/join/';" value="회원가입">
+  </form>
+{% endblock %}
+
+</div>
+</body>
