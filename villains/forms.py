@@ -15,6 +15,13 @@ class UserForm(forms.ModelForm):
         model = User
         fields = ['username', 'email', 'password', 'verify_password']
 
+
+    def clean_username(self):
+        username = self.cleaned_data['username']
+        if User.objects.filter(username=username).exists():
+            raise forms.ValidationError('이미 사용중인 아이디입니다.')
+        return username
+
     def clean_verify_password(self):
         password1 = self.cleaned_data.get('password')
         password2 = self.cleaned_data.get('verify_password')
@@ -28,15 +35,11 @@ class UserForm(forms.ModelForm):
         
         return password2
 
+    def signup(self):
+        if self.is_valid():
+            return User.objects.create_user(username=self.cleaned_data['username'], password=self.cleaned_data['verify_password'])
 
-"""
-success = user.check_password(request.POST['submitted_password'])
-if success: 
-   # do your email changing magic
-else:
-   return http.HttpResponse("Your password is incorrect") 
-   # or more appropriately your template with errors
-"""
+
 
 class LoginForm(forms.ModelForm):
     class Meta:

@@ -1,6 +1,11 @@
 <h2>회원가입</h2>
+
+
+
 <form class="form" method="post" action="">
     {% csrf_token %}
     {{ form.as_p }}
-    <input type="submit" value="회원가입" />
+    <input type="submit" value="회원가입" /><br />
+	<input type="button" onclick="location.href='/test/';" value="홈으로">
 </form>
+

@@ -1,13 +1,16 @@
-from django.shortcuts import render
+from django.shortcuts import render, render_to_response
 from django.contrib import messages
 
 # Create your views here.
 from .forms import UserForm, LoginForm
+from django.contrib.auth.models import User
 
 from django.http import HttpResponse
 from django.shortcuts import redirect
 from .forms import VillainForm
 from .models import *
+from django.contrib.auth import login, authenticate
+
 
 
 def index(request):
@@ -27,9 +30,9 @@ def signin(request):
         user = authenticate(username = username, password = password)
         if user is not None:
             login(request, user)
-            return redirect('index')
+            return redirect('test')
         else:
-            return HttpResponse('로그인 실패. 다시 시도 해보세요.')
+            return render_to_response('registration/login_error.html', {'form':form})
     else:
         form = LoginForm()
         return render(request, 'registration/login.html', {'form': form})
@@ -44,10 +47,9 @@ def signup(request):
                 email=form.cleaned_data['email'],
                 password=form.cleaned_data['password'],
             )
-            return redirect('index')
-        else:   
-            form = UserForm()
-            return render(request, 'registration/adduser.html', {'form':form})
+            return redirect('test')
+        else:
+            return render_to_response('registration/error.html', {'form':form})
 
     else:
         form = UserForm()
