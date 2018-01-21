@@ -27,6 +27,8 @@ urlpatterns = [
     url(r'^register_villain/$', views.register_villain, name='register_villain'),
     # url(r'^register_villain/$', views.register_villain, name='register_villain'),
     # url(r'^post_villain/$', views.post_villain, name='post_villain'),
-    url(r'^test/login/', views.signin, name='login'),
-    url(r'^test/join/', views.signup, name='join'),
+    url(r'^login/', views.signin, name='login'),
+    url(r'^join/', views.signup, name='join'),
+    url(r'^logout/', views.logout, name='logout'),
+
 ]

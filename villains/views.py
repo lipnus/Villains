@@ -56,11 +56,17 @@ def signup(request):
         return render(request, 'registration/adduser.html', {'form':form})
 
 
+def logout(request):
+    return render(request, "villains/index.html", {})
+
+
 def register_villain(request):
     if request.method == "POST": #save update_date
         form = VillainForm(request.POST)
         if form.is_valid():
-            form.save() #변경내용을 저장
+            villain = form.save(commit = False)
+            villain.writter_id = request.user.get_username() # form.univ = "츄츄츄츄" #글쓴이는 auth와 연계하여 자동입력
+            villain.generate()
             return redirect('index') #url에 있는 name입력하면 된다
 
     else:

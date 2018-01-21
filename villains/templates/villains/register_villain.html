@@ -19,19 +19,29 @@
 
   <body>
     <header>
-        <a href="register/" title  ="글쓰기" class="register_villain">빌런 등록</a>
-        <a href="login/" title  ="로그인">로그인</a>
-        <a href="register_user/" title  ="회원가입">회원가입</a><br>
+        <a href="{% url 'register_villain' %}" title  ="글쓰기" class="register_villain">빌런 등록</a>
+
+        {% if user.is_active %}
+          {{user.username}} 님 환영합니다
+          <a href="{% url 'logout' %}" title  ="로그아웃">로그아웃</a>
+
+        {% else %}
+          <a href="{% url 'login' %}" title  ="로그인">로그인</a>
+          <a href="{% url 'join' %}" title  ="회원가입">회원가입</a><br>
+        {% endif %}
+
         <div class ="title">
-                <p1>Villains</p1>
+          <p1>Villains</p1>
         </div>
     </header>
+
+
     <div class="main">
         <p3 class ="highlight">빌런 프로필</p3><br>
           <form method = "POST">
               {% csrf_token %}
               <p3>이름 </p3>{{form.villain_name}} &nbsp;
-              <p3>소속 </p3>{{form.univ}} {{form.major}} &nbsp; 
+              <p3>소속 </p3>{{form.univ}} {{form.major}} &nbsp;
               <p3>수업 </p3>{{form.class_name}}
               <p3>악명</p3> {{form.bomb}}
               <hr>
@@ -40,5 +50,6 @@
               <input type = "submit" value = "등록하기" class="submit"></input>
           </form>
     </div>
+    
   </body>
 </html>
