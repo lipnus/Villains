@@ -59,3 +59,16 @@ class VillainForm(ModelForm):
                 attrs={'placeholder': '그간의 만행을 적나라하게 적어주세요','class':'detail'}),
         }
         fields=['villain_name','univ','major','class_name','content','bomb']
+
+class modifyForm(ModelForm):
+    class Meta:
+        model = Villain
+        widgets = {
+            'villain_name': forms.TextInput(attrs={'placeholder': model.villain_name}),
+            'univ': forms.TextInput(attrs={'placeholder': model.univ}),
+            'major': forms.TextInput(attrs={'placeholder': model.major}),
+            'class_name': forms.TextInput(attrs={'placeholder': model.class_name}),
+            'content': forms.Textarea(
+                attrs={'placeholder': model.content,'class':'detail'}),
+        }
+        fields=['villain_name','univ','major','class_name','content','bomb']

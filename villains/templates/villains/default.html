@@ -10,13 +10,25 @@
   </head>
   <body>
     <header>
-      <a href="register/" title  ="글쓰기" class="register_villain">빌런 등록</a>
-      <a href="login/" title  ="로그인">로그인</a>
-      <a href="join/" title  ="회원가입">회원가입</a>
+      <a href="/register_villain/" title  ="글쓰기" class="register_villain">빌런 등록</a>
+      <a href="../test/login/" title  ="로그인" id = "headerButton">로그인</a>
+      <a href="../test/join/" title  ="회원가입" id = "headerButton">회원가입</a>
       <div class ="title">
-          <p1>Villains</p1>
+        <a href="/"><p1>Villains</p1></a>
     </div>
-    </header>ç
-
+    </header>
+    <div class="main">
+      {% for villain in villainList %}
+        <div class = "villainBlock">
+        <a href="{% url 'villain_detail' pk=villain.pk %}">
+          <h1>빌런 이름 : {{villain.villain_name}}</h1>
+          <h3>대학:{{villain.univ}}</h3>
+          <h3>전공:{{villain.major}}</h3>
+          <h3>수업명:{{villain.class_name}}</h3>
+          <h3>bomb:{{villain.bomb}}</h3>
+        </a>
+        </div>
+      {% endfor %}
+    </div>
   </body>
 </html>
