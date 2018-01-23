@@ -1,7 +1,6 @@
 @charset "utf-8";
 a{
     text-decoration: none;
-    color:black;
 }
 header{
     margin-left:25%;
@@ -13,12 +12,18 @@ header{
     color:#FF3A1A;
     padding-right:10px;
 }
+#headerButton{
+    color:black;
+}
 .title{
     color:#FF3A1A;
     font-size:40px;
     padding-top:20px;
     padding-bottom:20px;
     text-align:left;
+}
+.title>a{
+    color:#FF3A1A;
 }
 .highlight{
     color:#FF3A1A;
@@ -43,4 +48,12 @@ header{
 .bomb{
     position: absolute;
     right:0px;
+}
+.VillainBlock{
+    display:inline-block;
+    border-width:1px;
+}
+.VillainBlock>a{
+    display:inline-block;
+    text-decoration: none;
 }
