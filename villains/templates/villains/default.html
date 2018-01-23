@@ -9,13 +9,21 @@
     <link rel="stylesheet" type="text/css" href="{% static 'villains/main.css' %}">
   </head>
   <body>
+
     <header>
-      <a href="/register_villain/" title  ="글쓰기" class="register_villain">빌런 등록</a>
-      <a href="../test/login/" title  ="로그인" id = "headerButton">로그인</a>
-      <a href="../test/join/" title  ="회원가입" id = "headerButton">회원가입</a>
-      <div class ="title">
-        <a href="/"><p1>Villains</p1></a>
-    </div>
+        <a href="{% url 'register_villain' %}" title="글쓰기" class="register_villain">빌런 등록</a>
+
+        {% if user.is_active %}
+          {{user.username}} 님 환영합니다
+          <a href="{% url 'logout' %}" title  ="로그아웃">로그아웃</a>
+        {% else %}
+          <a href="{% url 'login' %}" title  ="로그인">로그인</a>
+          <a href="{% url 'join' %}" title  ="회원가입">회원가입</a><br>
+        {% endif %}
+
+        <div class ="title">
+          <a href="{% url 'index' %}" title  ="메인화면"> <p1>Villains</p1> </a>
+        </div>
     </header>
     <div class="main">
       {% for villain in villainList %}

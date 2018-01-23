@@ -1,4 +1,4 @@
-from django.shortcuts import render, render_to_response,get_object_or_404
+from django.shortcuts import render, render_to_response, get_object_or_404
 from django.contrib import messages
 import json
 
@@ -19,14 +19,8 @@ from django.views.decorators.http import require_POST
 
 def index(request):
     villainList = Villain.objects.order_by('-update_date')[0:5]
-    return render_to_response('villains/default.html',{'villainList':villainList})
-    #return render(request, "villains/index.html", {})
-
-def test(request):
-    return render(request, "villains/default.html", {})
-
-# def register_villain(request):
-    # return render(request, "villains/register_villain.html", {})
+    return render(request, 'villains/default.html', {'villainList':villainList} )
+    # return render(request, "villains/default.html", {})
 
 def signin(request):
     if request.method == "POST":
@@ -42,6 +36,12 @@ def signin(request):
     else:
         form = LoginForm()
         return render(request, 'registration/login.html', {'form': form})
+
+#임시로..
+def logout(request):
+    villainList = Villain.objects.order_by('-update_date')[0:5]
+    return render_to_response('villains/default.html', {'villainList':villainList})
+
 
 def signup(request):
     if request.method == "POST":
@@ -102,5 +102,3 @@ def delete(request,pk):
     villain = get_object_or_404(Villain, pk=pk)
     villain.delete()
     return redirect('index')
-
-    

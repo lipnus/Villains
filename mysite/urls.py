@@ -23,12 +23,12 @@ from villains import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^$', views.index, name='index'),
-    url(r'^test/$', views.test, name='test'),
+
+    url(r'^login/', views.signin, name='login'),
+    url(r'^logout/', views.logout, name='logout'),
+    url(r'^join/', views.signup, name='join'),
+
     url(r'^register_villain/$', views.register_villain, name='register_villain'),
-    # url(r'^register_villain/$', views.register_villain, name='register_villain'),
-    # url(r'^post_villain/$', views.post_villain, name='post_villain'),
-    url(r'^test/login/', views.signin, name='login'),
-    url(r'^test/join/', views.signup, name='join'),
     url(r'^detail/(?P<pk>[0-9]+)/$', views.villain_detail, name='villain_detail'),
     url(r'^modify/(?P<pk>[0-9]+)/$', views.villain_modify, name='villain_modify'),
     url(r'^agree$', views.agree, name='agree'),
