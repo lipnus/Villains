@@ -37,10 +37,10 @@ def signin(request):
         form = LoginForm()
         return render(request, 'registration/login.html', {'form': form})
 
-#임시로..
-def logout(request):
-    villainList = Villain.objects.order_by('-update_date')[0:5]
-    return render_to_response('villains/default.html', {'villainList':villainList})
+
+def signout(request):
+    logout(request)
+    return render(request, 'registration/logout.html', {})
 
 
 def signup(request):
