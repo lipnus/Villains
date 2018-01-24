@@ -66,16 +66,30 @@ def register_villain(request):
     if request.method == "POST": #save update_date
         form = VillainForm(request.POST)
         if form.is_valid():
-            form.save() #변경내용을 저장
-            return redirect('index') #url에 있는 name입력하면 된다
 
+            villain = form.save(commit = False)
+            villain.writter_id = request.user.get_username() #글쓴이는 auth와 연계하여 자동입력
+            villain.generate()
+
+            return redirect('index') #url에 있는 name입력하면 된다
     else:
         form = VillainForm()
         return render(request, "villains/register_villain.html", {"form":form})
 
 def villain_detail(request,pk):
+#참고1: https://wayhome25.github.io/django/2017/06/25/django-ajax-like-button/
+#참고2: http://whatisthenext.tistory.com/121
+
     villain = get_object_or_404(Villain, pk=pk)
-    return render(request, 'villains/villain_detail.html', {'villain': villain,"pk":pk})
+    villain_agree, villain_agree_created = villain.agree_set.get_or_create(user=request.user)
+
+    if villain_agree_created: #생성되었다(눌렀던 적이 없음)
+        villain_agree.delete()
+        agree_ok = False
+    else: #있던걸 꺼내왔다(눌렀었음)
+        agree_ok = True
+
+    return render(request, 'villains/villain_detail.html', {'villain': villain,"pk":pk, "agree_ok":agree_ok})
 
 def villain_modify(request,pk):
     villain = get_object_or_404(Villain, pk=pk)
@@ -89,14 +103,24 @@ def villain_modify(request,pk):
         return render(request, "villains/villain_modify.html", {'form':form})
 
 @login_required
-@require_POST # 해당 뷰는 POST method 만 받는다.
+@require_POST # 해당 뷰는 POST method만 받는다.
 def agree(request):
-    pk = request.POST.get('pk', None)
-    villain = get_object_or_404(Villain, pk=pk)
-    villain.agree+=1
+    pk = request.POST.get('pk', None) #빌런번호
+
+    villain = get_object_or_404(Villain, pk=pk) #빌런객체
+    villain_agree, villain_agree_created = villain.agree_set.get_or_create(user=request.user)
+
+    if villain_agree_created: #처음 누르는 경우
+        agree_ok = True
+    else: #이미 눌렀던 경우
+        villain_agree.delete()
+        agree_ok = False
+
     villain.save()
-    context={'agree':villain.agree }
+    context = {'agree_count': villain.agree_count, 'agree_ok': agree_ok }
+
     return HttpResponse(json.dumps(context), content_type="application/json")
+
 
 def delete(request,pk):
     villain = get_object_or_404(Villain, pk=pk)

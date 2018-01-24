@@ -4,7 +4,13 @@
     <div class="main">
       {% for villain in villainList %}
         <div class = "villainBlock">
-        <a href="{% url 'villain_detail' pk=villain.pk %}">
+          {% if user.is_active %}
+            <a href="{% url 'villain_detail' pk=villain.pk %}">
+          {% else %}
+            <a href="{% url 'login' %}">
+          {% endif %}
+
+
           <h1>빌런 이름 : {{villain.villain_name}}</h1>
           <h3>대학:{{villain.univ}}</h3>
           <h3>전공:{{villain.major}}</h3>
