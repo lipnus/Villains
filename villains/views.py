@@ -11,7 +11,7 @@ from django.http import HttpResponse
 from django.shortcuts import redirect
 from .forms import VillainForm, modifyForm
 from .models import *
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_POST
 
@@ -20,23 +20,19 @@ from django.views.decorators.http import require_POST
 def index(request):
     villains = Villain.objects.all()
     q = request.GET.get('searchText', '')
-    searchType = request.GET.get('searchType', '')
+    searchType = request.GET.get('searchType')
     if q: # q가 있으면
         if searchType=="name":
             villains = villains.filter(villain_name__icontains=q) # 제목에 q가 포함되어 있는 레코드만 필터링
-            return render(request, 'villains/default.html', {'villainList':villains} )
         elif searchType=="univ":
-            villains = villains.filter(univ__icontains=q) # 제목에 q가 포함되어 있는 레코드만 필터링
-            return render(request, 'villains/default.html', {'villainList':villains} )
+            villains = villains.filter(univ__icontains=q)
         elif searchType=="major":
-            villains = villains.filter(major__icontains=q) # 제목에 q가 포함되어 있는 레코드만 필터링
-            return render(request, 'villains/default.html', {'villainList':villains} )
+            villains = villains.filter(major__icontains=q)
         elif searchType=="class_name":
-            villains = villains.filter(class_name__icontains=q) # 제목에 q가 포함되어 있는 레코드만 필터링
-            return render(request, 'villains/default.html', {'villainList':villains} )
+            villains = villains.filter(class_name__icontains=q)
         elif searchType=="content":
-            villains = villains.filter(content__icontains=q) # 제목에 q가 포함되어 있는 레코드만 필터링
-            return render(request, 'villains/default.html', {'villainList':villains} )
+            villains = villains.filter(content__icontains=q)
+        return render(request, 'villains/default.html', {'villainList':villains} )
     else:
         villainList = Villain.objects.order_by('-update_date')[0:5]
         return render(request, 'villains/default.html', {'villainList':villainList} )
@@ -57,10 +53,10 @@ def signin(request):
         form = LoginForm()
         return render(request, 'registration/login.html', {'form': form})
 
-#임시로..
-def logout(request):
-    villainList = Villain.objects.order_by('-update_date')[0:5]
-    return render_to_response('villains/default.html', {'villainList':villainList})
+
+def signout(request):
+    logout(request)
+    return render(request, 'registration/logout.html', {})
 
 
 def signup(request):
@@ -73,7 +69,7 @@ def signup(request):
                 email=form.cleaned_data['email'],
                 password=form.cleaned_data['password'],
             )
-            return redirect('test')
+            return redirect('index')
         else:
             return render_to_response('registration/error.html', {'form':form})
 
