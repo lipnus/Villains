@@ -18,8 +18,28 @@ from django.views.decorators.http import require_POST
 
 
 def index(request):
-    villainList = Villain.objects.order_by('-update_date')[0:5]
-    return render(request, 'villains/default.html', {'villainList':villainList} )
+    villains = Villain.objects.all()
+    q = request.GET.get('searchText', '')
+    searchType = request.GET.get('searchType', '')
+    if q: # q가 있으면
+        if searchType=="name":
+            villains = villains.filter(villain_name__icontains=q) # 제목에 q가 포함되어 있는 레코드만 필터링
+            return render(request, 'villains/default.html', {'villainList':villains} )
+        elif searchType=="univ":
+            villains = villains.filter(univ__icontains=q) # 제목에 q가 포함되어 있는 레코드만 필터링
+            return render(request, 'villains/default.html', {'villainList':villains} )
+        elif searchType=="major":
+            villains = villains.filter(major__icontains=q) # 제목에 q가 포함되어 있는 레코드만 필터링
+            return render(request, 'villains/default.html', {'villainList':villains} )
+        elif searchType=="class_name":
+            villains = villains.filter(class_name__icontains=q) # 제목에 q가 포함되어 있는 레코드만 필터링
+            return render(request, 'villains/default.html', {'villainList':villains} )
+        elif searchType=="content":
+            villains = villains.filter(content__icontains=q) # 제목에 q가 포함되어 있는 레코드만 필터링
+            return render(request, 'villains/default.html', {'villainList':villains} )
+    else:
+        villainList = Villain.objects.order_by('-update_date')[0:5]
+        return render(request, 'villains/default.html', {'villainList':villainList} )
     # return render(request, "villains/default.html", {})
 
 def signin(request):
@@ -30,7 +50,7 @@ def signin(request):
         user = authenticate(username = username, password = password)
         if user is not None:
             login(request, user)
-            return redirect('test')
+            return redirect('index')
         else:
             return render_to_response('registration/login_error.html', {'form':form})
     else:

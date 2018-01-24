@@ -12,14 +12,6 @@
   <body>
     
     <header>
-<<<<<<< HEAD
-      <a href="{% url 'register_villain' %}" title  ="글쓰기" class="register_villain">빌런 등록</a>
-      <a href="{% url 'login' %}" title  ="로그인" id = "headerButton">로그인</a>
-      <a href="{% url 'join' %}" title  ="회원가입" id = "headerButton">회원가입</a>
-      <div class ="title">
-        <a href="/"><p1>Villains</p1></a>
-    </div>
-=======
         <a href="{% url 'register_villain' %}" title  ="글쓰기" class="register_villain">빌런 등록</a>
 
         {% if user.is_active %}
@@ -34,7 +26,6 @@
         <div class ="title">
           <a href="{% url 'index' %}" title  ="메인화면"> <p1>Villains</p1> </a>
         </div>
->>>>>>> 90fbc1d2a0941e7a60c5d9d4b984f9770e6acd97
     </header>
 
     <div class="main">
