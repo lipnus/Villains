@@ -11,7 +11,7 @@ from django.http import HttpResponse
 from django.shortcuts import redirect
 from .forms import VillainForm, modifyForm
 from .models import *
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_POST
 
@@ -30,17 +30,17 @@ def signin(request):
         user = authenticate(username = username, password = password)
         if user is not None:
             login(request, user)
-            return redirect('test')
+            return redirect('index')
         else:
             return render_to_response('registration/login_error.html', {'form':form})
     else:
         form = LoginForm()
         return render(request, 'registration/login.html', {'form': form})
 
-#임시로..
-def logout(request):
-    villainList = Villain.objects.order_by('-update_date')[0:5]
-    return render_to_response('villains/default.html', {'villainList':villainList})
+
+def signout(request):
+    logout(request)
+    return render(request, 'registration/logout.html', {})
 
 
 def signup(request):
@@ -53,7 +53,7 @@ def signup(request):
                 email=form.cleaned_data['email'],
                 password=form.cleaned_data['password'],
             )
-            return redirect('test')
+            return redirect('index')
         else:
             return render_to_response('registration/error.html', {'form':form})
 
@@ -66,11 +66,7 @@ def register_villain(request):
     if request.method == "POST": #save update_date
         form = VillainForm(request.POST)
         if form.is_valid():
-
-            villain = form.save(commit = False) #변경내용을 저장
-            villain.writter_id = request.user.get_username() #글쓴이는 auth와 연계하여 자동입력
-            villain.generate()
-
+            form.save() #변경내용을 저장
             return redirect('index') #url에 있는 name입력하면 된다
 
     else:
