@@ -10,14 +10,33 @@
     <script src="{% static 'villains/jquery-3.3.1.min.js' %}"></script>
   </head>
   <body>
+    
     <header>
+<<<<<<< HEAD
       <a href="{% url 'register_villain' %}" title  ="글쓰기" class="register_villain">빌런 등록</a>
       <a href="{% url 'login' %}" title  ="로그인" id = "headerButton">로그인</a>
       <a href="{% url 'join' %}" title  ="회원가입" id = "headerButton">회원가입</a>
       <div class ="title">
         <a href="/"><p1>Villains</p1></a>
     </div>
+=======
+        <a href="{% url 'register_villain' %}" title  ="글쓰기" class="register_villain">빌런 등록</a>
+
+        {% if user.is_active %}
+          {{user.username}} 님 환영합니다
+          <a href="{% url 'logout' %}" title  ="로그아웃">로그아웃</a>
+
+        {% else %}
+          <a href="{% url 'login' %}" title  ="로그인">로그인</a>
+          <a href="{% url 'join' %}" title  ="회원가입">회원가입</a><br>
+        {% endif %}
+
+        <div class ="title">
+          <a href="{% url 'index' %}" title  ="메인화면"> <p1>Villains</p1> </a>
+        </div>
+>>>>>>> 90fbc1d2a0941e7a60c5d9d4b984f9770e6acd97
     </header>
+
     <div class="main">
         <div class = "detail_img">
                 이미지
@@ -40,9 +59,9 @@
            {{villain.writter_id}} {{villain.update_date}} 작성
            <span class = "detailFooterButton"><a href="{% url 'villain_modify' pk=villain.pk %}">수정</a> / <a href = "{% url 'villain_delete' pk=villain.pk %}">삭제</a></span>
        </div>
-       
+
     </div>
-    <script type="text/javascript">   
+    <script type="text/javascript">
          $(".agree").click(function(){
         var pk = "{{pk}}"
         $.ajax({ // .like 버튼을 클릭하면 <새로고침> 없이 ajax로 서버와 통신하겠다.
