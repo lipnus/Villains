@@ -11,7 +11,7 @@ from django.http import HttpResponse
 from django.shortcuts import redirect
 from .forms import VillainForm, modifyForm
 from .models import *
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_POST
 
@@ -30,7 +30,7 @@ def signin(request):
         user = authenticate(username = username, password = password)
         if user is not None:
             login(request, user)
-            return redirect('test')
+            return redirect('index')
         else:
             return render_to_response('registration/login_error.html', {'form':form})
     else:
@@ -53,7 +53,7 @@ def signup(request):
                 email=form.cleaned_data['email'],
                 password=form.cleaned_data['password'],
             )
-            return redirect('test')
+            return redirect('index')
         else:
             return render_to_response('registration/error.html', {'form':form})
 
