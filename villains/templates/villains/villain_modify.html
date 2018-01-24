@@ -1,29 +1,37 @@
-{% extends 'villains/base.html' %}
-{% block content %}
+<!DOCTYPE html>
 
+{% load staticfiles %}
+{% load static %}
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>빌런 등록</title></a>
+    <link rel="stylesheet" type="text/css" href="{% static 'villains/main.css' %}">
+  </head>
+
+<!--
+{% if messages %}
+<script>
+    alert('{{ message }}');
+</script>
+{% endif %}   등록되었음을 알려주는 메시지 띄울 예정-->
+
+  <body>
     <header>
-        <a href="{% url 'register_villain' %}" title  ="글쓰기" class="register_villain">빌런 등록</a>
-
-        {% if user.is_active %}
-          {{user.username}} 님 환영합니다
-          <a href="{% url 'logout' %}" title  ="로그아웃">로그아웃</a>
-
-        {% else %}
-          <a href="{% url 'login' %}" title  ="로그인">로그인</a>
-          <a href="{% url 'join' %}" title  ="회원가입">회원가입</a><br>
-        {% endif %}
-
+        <a href="register/" title  ="글쓰기" class="register_villain">빌런 등록</a>
+        <a href="../test/login/" title  ="로그인" id = "headerButton">로그인</a>
+        <a href="../test/join/" title  ="회원가입" id = "headerButton">회원가입</a><br>
         <div class ="title">
-          <a href="{% url 'index' %}" title  ="메인화면"> <p1>Villains</p1> </a>
+          <a href="/"><p1>Villains</p1></a>
         </div>
     </header>
-
     <div class="main">
         <p3 class ="highlight">빌런 프로필</p3><br>
           <form method = "POST">
               {% csrf_token %}
               <p3>이름 </p3>{{form.villain_name}} &nbsp;
-              <p3>소속 </p3>{{form.univ}} {{form.major}} &nbsp;
+              <p3>소속 </p3>{{form.univ}} {{form.major}} &nbsp; 
               <p3>수업 </p3>{{form.class_name}}
               <p3>악명</p3> {{form.bomb}}
               <hr>
@@ -34,6 +42,3 @@
     </div>
   </body>
 </html>
-
-
-{% endblock %}

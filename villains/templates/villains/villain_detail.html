@@ -42,7 +42,6 @@
             success: function(response){ // 통신 성공시 - 동적으로 좋아요 갯수 변경, 유저 목록 변경
               console.log("response:" + response.agree_ok)
               $('.agree').html(response.agree_count + ' 인정');
-
               if(response.agree_ok){
                 $('.agree').css("background-color","#f0532d");
                 $('.agree').css("color","white");
@@ -50,7 +49,6 @@
                 $('.agree').css("background-color","white");
                 $('.agree').css("color","black");
               }
-
             },
             error: function(request, status, error){ // 통신 실패시
               console.log("오류: "+ error)
