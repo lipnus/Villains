@@ -1,23 +1,5 @@
-<!DOCTYPE html>
-
-{% load staticfiles %}
-{% load static %}
-
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>빌런 등록</title></a>
-    <link rel="stylesheet" type="text/css" href="{% static 'villains/main.css' %}">
-  </head>
-
-<!--
-{% if messages %}
-<script>
-    alert('{{ message }}');
-</script>
-{% endif %}   등록되었음을 알려주는 메시지 띄울 예정-->
-
-  <body>
+{% extends 'villains/base.html' %}
+{% block content %}
 
     <header>
         <a href="{% url 'register_villain' %}" title  ="글쓰기" class="register_villain">빌런 등록</a>
@@ -35,7 +17,7 @@
           <a href="{% url 'index' %}" title  ="메인화면"> <p1>Villains</p1> </a>
         </div>
     </header>
-    
+
     <div class="main">
         <p3 class ="highlight">빌런 프로필</p3><br>
           <form method = "POST">
@@ -52,3 +34,6 @@
     </div>
   </body>
 </html>
+
+
+{% endblock %}
