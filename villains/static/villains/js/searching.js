@@ -27,14 +27,12 @@ function searchAjax(){
                             +'</h3><h3>bomb:'+result[i].bomb
                             +'</h3></div><br>';
                         }
-                        $('.originalBlock').css('display','none');
-                        $('.searchBlock').css('display','block');
                         $('.searchBlock').html(str);
                     }else{
-                        $('.originalBlock').css('display','none');
-                        $('.searchBlock').css('display','block');
                         str="검색 결과가 없습니다" //검색 결과가 없을 때
                     }
+                    $('.originalBlock').css('display','none');
+                    $('.searchBlock').css('display','block');
                     $('.searchBlock').html(str);
                 },
                 error : function (e) {console.log('error:'+e.status);}
