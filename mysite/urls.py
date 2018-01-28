@@ -33,4 +33,5 @@ urlpatterns = [
     url(r'^modify/(?P<pk>[0-9]+)/$', views.villain_modify, name='villain_modify'),
     url(r'^agree$', views.agree, name='agree'),
     url(r'^delete/(?P<pk>[0-9]+)/$', views.delete, name='villain_delete'),
+    url(r'^search$', views.villainSearch, name='villainSearch'),
 ]

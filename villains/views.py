@@ -118,3 +118,28 @@ def delete(request,pk):
     villain = get_object_or_404(Villain, pk=pk)
     villain.delete()
     return redirect('index')
+
+def villainSearch(request):
+    q = request.GET.get('searchText','')
+    searchType = request.GET.get('searchType')
+    villains = Villain.objects.all()
+    if q: # q가 있으면
+        if searchType=="name":
+            villains = villains.filter(villain_name__icontains=q) # 제목에 q가 포함되어 있는 레코드만 필터링
+        elif searchType=="univ":
+            villains = villains.filter(univ__icontains=q)
+        elif searchType=="major":
+            villains = villains.filter(major__icontains=q)
+        elif searchType=="class_name":
+            villains = villains.filter(class_name__icontains=q)
+        elif searchType=="content":
+            villains = villains.filter(content__icontains=q)
+
+    
+    s=[]
+    for villain in villains:
+        n={"name":villain.villain_name,"univ":villain.univ,"major":villain.major,"className":villain.class_name,"bomb":villain.bomb,"agree":villain.agree,"pk":villain.pk}
+        s.append(n)
+        
+    result = s
+    return HttpResponse(json.dumps(result), content_type="application/json")

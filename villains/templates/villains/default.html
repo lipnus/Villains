@@ -1,29 +1,32 @@
 {% extends 'villains/base.html' %}
 {% block content %}
+{% load staticfiles %}
+<script type = "text/javascript" src="{% static 'villains/js/searching.js' %}"></script>
 
     <div class="main">
-        <form action="" method="get">
-            <select name="searchType">
-              <option value="name">빌런 이름</option>
-              <option value="univ">학교</option>
-              <option value="major">전공</option>
-              <option value="class_name">수업명</option>
-              <option value="content">내용</option>
-            </select>
-            <input type="text" name="searchText" value="{{ inputText }}">
-            <input type="submit" value="검색">
-          </form>
-      {% for villain in villainList %}
-        <div class = "villainBlock">
+      <select name="searchType" class ="searchType">
+        <option value="name">빌런 이름</option>
+        <option value="univ">학교</option>
+        <option value="major">전공</option>
+        <option value="class_name">수업명</option>
+        <option value="content">내용</option>
+      </select>
+      <input type="text" class="searchText" placeholder="검색어를 입력하세요" style="width:500px;">
+
+      <div id="ListBlock" class ="searchBlock"></div> <!--검색 결과가 나타나는 div-->
+      <div id="ListBlock" class="originalBlock"> <!--모든 빌런들이 나타나는 초기 div-->
+          {% for villain in villainList %}
+        <div id = "villainBlock">
         <a href="{% url 'villain_detail' pk=villain.pk %}">
           <h1>빌런 이름 : {{villain.villain_name}}</h1>
           <h3>대학:{{villain.univ}}</h3>
           <h3>전공:{{villain.major}}</h3>
           <h3>수업명:{{villain.class_name}}</h3>
           <h3>bomb:{{villain.bomb}}</h3>
+          <h3>인정:{{villain.agree}}</h3>
         </a>
       </div><br>
       {% endfor %}
     </div>
-
+  </div>
 {% endblock %}

@@ -49,11 +49,20 @@ header{
     position: absolute;
     right:0px;
 }
-.VillainBlock{
+#VillainBlock{
     display:inline-block;
     border-width:1px;
 }
-.VillainBlock>a{
+#VillainBlock>a{
     display:inline-block;
     text-decoration: none;
+}
+.originalBlock{
+    display:block;
+}
+.searchBlock{
+    display:none;
+}
+.searchText{
+    width:500px;
 }
