@@ -20,7 +20,7 @@ function searchAjax(){
                         for(var i=0; i<result.length; i++){
                             str+='<div id="villainBlock">'
                             +'<a href="detail/'+result[i].pk+'/">'
-                            +'<h1>빌런 이름:'+result[i].name
+                            +'<h1>빌런 이름 : '+result[i].name
                             +'</h1><h3>대학:'+result[i].univ
                             +'</h3><h3>전공:'+result[i].major
                             +'</h3><h3>수업명: '+result[i].className
@@ -31,10 +31,11 @@ function searchAjax(){
                         $('.searchBlock').css('display','block');
                         $('.searchBlock').html(str);
                     }else{
-                        $('.originalBlock').css('display','block');
-                        $('.searchBlock').css('display','none'); //빈 텍스트로 보냈을 때
+                        $('.originalBlock').css('display','none');
+                        $('.searchBlock').css('display','block');
+                        str="검색 결과가 없습니다" //검색 결과가 없을 때
                     }
-                    $('#ListBlock').html(str);
+                    $('.searchBlock').html(str);
                 },
                 error : function (e) {console.log('error:'+e.status);}
             })
