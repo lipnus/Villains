@@ -25,7 +25,6 @@ function searchAjax(){
                             +'</h3><h3>전공:'+result[i].major
                             +'</h3><h3>수업명: '+result[i].className
                             +'</h3><h3>bomb:'+result[i].bomb
-                            +'</h3><h3>인정: '+result[i].agree
                             +'</h3></div><br>';
                         }
                         $('.originalBlock').css('display','none');

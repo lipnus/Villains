@@ -4,7 +4,6 @@
 <script type = "text/javascript" src="{% static 'villains/js/searching.js' %}"></script>
 
     <div class="main">
-<<<<<<< HEAD
       <select name="searchType" class ="searchType">
         <option value="name">빌런 이름</option>
         <option value="univ">학교</option>
@@ -19,23 +18,11 @@
           {% for villain in villainList %}
         <div id = "villainBlock">
         <a href="{% url 'villain_detail' pk=villain.pk %}">
-=======
-      {% for villain in villainList %}
-        <div class = "villainBlock">
-          {% if user.is_active %}
-            <a href="{% url 'villain_detail' pk=villain.pk %}">
-          {% else %}
-            <a href="{% url 'login' %}">
-          {% endif %}
-
-
->>>>>>> 48fb8cd5867e11fd26c93be0575b6d13aa8589b8
           <h1>빌런 이름 : {{villain.villain_name}}</h1>
           <h3>대학:{{villain.univ}}</h3>
           <h3>전공:{{villain.major}}</h3>
           <h3>수업명:{{villain.class_name}}</h3>
           <h3>bomb:{{villain.bomb}}</h3>
-          <h3>인정:{{villain.agree}}</h3>
         </a>
       </div><br>
       {% endfor %}

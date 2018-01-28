@@ -162,7 +162,7 @@ def villainSearch(request):
     
     s=[]
     for villain in villains:
-        n={"name":villain.villain_name,"univ":villain.univ,"major":villain.major,"className":villain.class_name,"bomb":villain.bomb,"agree":villain.agree,"pk":villain.pk}
+        n={"name":villain.villain_name,"univ":villain.univ,"major":villain.major,"className":villain.class_name,"bomb":villain.bomb,"pk":villain.pk}
         s.append(n)
         
     result = s
