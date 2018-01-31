@@ -34,7 +34,7 @@ def index(request):
             villains = villains.filter(content__icontains=q)
         return render(request, 'villains/default.html', {'villainList':villains} )
     else:
-        villainList = Villain.objects.order_by('-update_date')[0:5]
+        villainList = Villain.objects.order_by('-update_date')
         return render(request, 'villains/default.html', {'villainList':villainList} )
     # return render(request, "villains/default.html", {})
 

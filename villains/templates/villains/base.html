@@ -19,10 +19,10 @@
 
         {% if user.is_active %}
           {{user.username}} 님 환영합니다
-          <a href="{% url 'logout' %}" title  ="로그아웃">로그아웃</a>
+          <a href="{% url 'logout' %}" title  ="로그아웃" class = "logon">로그아웃</a>
 
         {% else %}
-          <a href="{% url 'login' %}" title  ="로그인">로그인</a>
+          <a href="{% url 'login' %}" title  ="로그인" class = "logon">로그인</a>
           <a href="{% url 'join' %}" title  ="회원가입">회원가입</a><br>
         {% endif %}
 
@@ -34,6 +34,8 @@
     <!-- 내용이 들어갈 부분 -->
     {% block content %}
     {% endblock %}
-
+    <footer>
+      Copyright (c) <span>KWEB</span> All Rights Reserved.
+    </footer>
   </body>
 </html>

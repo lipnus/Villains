@@ -1,0 +1,77 @@
+@charset "utf-8";
+#ListBlock{
+    margin-left:-5px;
+    margin-right:-5px;
+}
+#VillainBlock{
+    display:inline-block;
+    position: relative;
+    width:260px;
+    height: 200px;
+    margin:2.5px 5px 2.5px 5px;
+    background-color: #CFCFCF;
+}
+#villainBlock>a{
+    display: block;
+    width:100%;
+    height:100%;
+}
+.originalBlock{
+    display:block;
+}
+.searchBlock{
+    display:none;
+}
+.inputBox{
+    margin-bottom:30px;
+    margin-top:20px;
+}
+input{
+    width:700px;
+    height:50px;
+    background-image : url('../image/magnifier.png'); 
+    background-position:right; 
+    background-repeat:no-repeat;
+    background-size:40px;
+    font-size:15px;
+    padding-left:15px;
+}
+select{
+    width:100px;
+    height:50px;
+    font-size:15px;
+    margin-right:4px;
+}
+.villainName{
+    display: inline-block;
+    position:absolute;
+    bottom:5px;
+    left:10px;
+    font-size:20px;
+}
+.villainBomb{
+    display: inline-block;
+    position: absolute;
+    bottom:5px;
+    right: 10px;
+}
+.villainClass{
+    position: absolute;
+    top:5px;
+    right:10px;
+    text-align: right;
+}
+
+@media(max-width:810px){
+    input{
+        width:78vw;
+    }
+    select{
+        width:15vw;
+        margin-right:2vw;
+    }
+    #villainBlock{
+        width:47vw;
+        margin: 0.5vw 1vw 0.5vw 1vw;
+    }
+}

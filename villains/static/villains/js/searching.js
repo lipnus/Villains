@@ -1,4 +1,7 @@
 $(document).ready(function(){
+    if($('body').height()>window.screen.height){
+        $('footer').css('position','static');
+    }
     searchAjax();
   });
 
@@ -20,16 +23,17 @@ function searchAjax(){
                         for(var i=0; i<result.length; i++){
                             str+='<div id="villainBlock">'
                             +'<a href="detail/'+result[i].pk+'/">'
-                            +'<h1>빌런 이름 : '+result[i].name
-                            +'</h1><h3>대학:'+result[i].univ
-                            +'</h3><h3>전공:'+result[i].major
-                            +'</h3><h3>수업명: '+result[i].className
-                            +'</h3><h3>bomb:'+result[i].bomb
-                            +'</h3></div><br>';
+                            +'<div class = "villainClass">'+result[i].major
+                            +'<br>강의명 : '+result[i].className
+                            +'</div><div class = "villainName">'+result[i].name
+                            +'</div><div class = "villainBomb">'+result[i].bomb
+                            +' 폭탄</div></a></div>';
                         }
                         $('.searchBlock').html(str);
+                        $('.searchBlock').css('text-align','left');
                     }else{
-                        str="검색 결과가 없습니다" //검색 결과가 없을 때
+                        str="검색 결과가 없습니다"
+                        $('.searchBlock').css('text-align','center'); //검색 결과가 없을 때
                     }
                     $('.originalBlock').css('display','none');
                     $('.searchBlock').css('display','block');
