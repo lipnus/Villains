@@ -25,7 +25,7 @@ SECRET_KEY = '*q$57@1zv%johm@3(jspb4$8b-c#ih@j-arw8l4%+ort!o*f4$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'villains',
 ]
 
 MIDDLEWARE = [
@@ -62,7 +63,6 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'villains',
             ],
         },
     },

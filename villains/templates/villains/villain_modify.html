@@ -1,0 +1,20 @@
+{% extends 'villains/base.html' %}
+{% block content %}
+{% load staticfiles %}
+    <div class="main">
+        <p3 class ="highlight">빌런 프로필</p3><br>
+          <form method = "POST">
+              {% csrf_token %}
+              <p3>이름 </p3>{{form.villain_name}} &nbsp;
+              <p3>소속 </p3>{{form.univ}} {{form.major}} &nbsp;
+              <p3>수업 </p3>{{form.class_name}}
+              <p3>악명</p3> {{form.bomb}}
+              <hr>
+              <p3 class = "highlight">활약상</p3>
+              <br>{{form.content}}<br>
+              <input type = "submit" value = "수정하기" class="submit"></input>
+          </form>
+    </div>
+  </body>
+</html>
+{% endblock %}

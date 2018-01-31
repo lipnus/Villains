@@ -16,6 +16,22 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from django.conf.urls import url
+from villains import views
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    url(r'^$', views.index, name='index'),
+
+    url(r'^login/', views.signin, name='login'),
+    url(r'^logout/', views.signout, name='logout'),
+    url(r'^join/', views.signup, name='join'),
+
+    url(r'^register_villain/$', views.register_villain, name='register_villain'),
+    url(r'^detail/(?P<pk>[0-9]+)/$', views.villain_detail, name='villain_detail'),
+    url(r'^modify/(?P<pk>[0-9]+)/$', views.villain_modify, name='villain_modify'),
+    url(r'^agree$', views.agree, name='agree'),
+    url(r'^delete/(?P<pk>[0-9]+)/$', views.delete, name='villain_delete'),
+    url(r'^search$', views.villainSearch, name='villainSearch'),
 ]

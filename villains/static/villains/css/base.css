@@ -1,0 +1,87 @@
+@charset "utf-8";
+@import url(https://cdn.rawgit.com/openhiun/hangul/14c0f6faa2941116bb53001d6a7dcd5e82300c3f/nanumbarungothic.css);
+body{
+    font-family: 'Nanum Barun Gothic', sans-serif;
+    margin : 0 0 0 0;
+}
+header{
+    margin-top:10px;
+}
+.main{
+    margin-left:auto;
+    margin-right:auto;
+    width:808px;
+    height:auto;
+    line-height:30px;
+}
+a{
+    text-decoration: none;
+}
+header{
+    margin-left:auto;
+    margin-right:auto;
+    text-align:right;
+    width:808px;
+}
+.register_villain{
+    color:#FF3A1A;
+    padding-right:10px;
+}
+#headerButton{
+    color:black;
+}
+.title{
+    margin-left:-10px;
+    padding-top:20px;
+    padding-bottom:20px;
+    text-align:left;
+}
+.logoImage{
+    width:150px;
+    height:auto;
+}
+.highlight{
+    color:#FF3A1A;
+}
+.detail{
+    width:800px;
+    height:400px;
+    padding-top:0;
+}
+.submit{
+    width:808px;
+    height:100px;
+    text-align: center;
+}
+
+.bomb{
+    position: absolute;
+    right:0px;
+}
+.logon{
+    margin-left:10px;
+}
+footer{
+    position: absolute;
+    bottom:0px;
+    width:100%;
+    text-align: center;
+    background-color: #EDEDED;
+    height:100px;
+    line-height: 100px;
+    margin-top:50px;
+}
+footer>span{
+    color:#FF3A1A;
+}
+@media(max-width:810px){
+    header{
+        width:96vw;
+    }
+    .main{
+        width:98vw;
+    }
+    .title{
+        margin-left:0;
+    }
+}

@@ -1,0 +1,32 @@
+{% extends 'villains/base.html' %}
+{% block content %}
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'villains/css/default.css' %}">
+<script type = "text/javascript" src="{% static 'villains/js/searching.js' %}"></script>
+
+    <div class="main">
+      <div class ="inputBox">
+      <select name="searchType" class ="searchType">
+        <option value="name">이름</option>
+        <option value="univ">학교</option>
+        <option value="major">전공</option>
+        <option value="class_name">수업명</option>
+        <option value="content">내용</option>
+      </select>
+      <input type="text" class="searchText" placeholder="키워드를 입력하세요...">
+    </div>
+
+      <div id="ListBlock" class ="searchBlock"></div> <!--검색 결과가 나타나는 div-->
+      <div id="ListBlock" class="originalBlock"> <!--모든 빌런들이 나타나는 초기 div-->
+          {% for villain in villainList %}
+          <div id = "villainBlock">
+            <a href="{% url 'villain_detail' pk=villain.pk %}">
+            <div class = "villainClass">{{villain.major}}<br>강의명 : {{villain.class_name}}</div>
+            <div class = "villainName">{{villain.villain_name}}</div>
+            <div class = "villainBomb">{{villain.bomb}} 폭탄</div>
+            </a>
+          </div>
+          {% endfor %}
+    </div>
+</div>
+{% endblock %}
