@@ -5,10 +5,11 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=yes,target-densitydpi=medium-dpi">
     <title>Villains Beta</title></a>
-    <link rel="stylesheet" type="text/css" href="{% static 'villains/main.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'villains/villain_detail.css' %}">
-    <script src="{% static 'villains/jquery-3.3.1.min.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'villains/css/base.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'villains/css/villain_detail.css' %}">
+    <script src="{% static 'villains/js/jquery-3.3.1.min.js' %}"></script>
   </head>
 
   <body>
@@ -26,7 +27,7 @@
         {% endif %}
 
         <div class ="title">
-          <a href="{% url 'index' %}" title  ="메인화면"> <p1>Villains</p1> </a>
+          <a href="{% url 'index' %}" title  ="메인화면"> <img src = "{% static 'villains/image/villains_logo.png' %}" class = "logoImage"><img/> </a>
         </div>
     </header>
 

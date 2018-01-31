@@ -1,4 +1,8 @@
 @charset "utf-8";
+@import url(https://cdn.rawgit.com/openhiun/hangul/14c0f6faa2941116bb53001d6a7dcd5e82300c3f/nanumbarungothic.css);
+body{
+    font-family: 'Nanum Barun Gothic', sans-serif;
+}
 a{
     text-decoration: none;
 }
@@ -16,14 +20,14 @@ header{
     color:black;
 }
 .title{
-    color:#FF3A1A;
-    font-size:40px;
+    margin-left:-10px;
     padding-top:20px;
     padding-bottom:20px;
     text-align:left;
 }
-.title>a{
-    color:#FF3A1A;
+.logoImage{
+    width:150px;
+    height:auto;
 }
 .highlight{
     color:#FF3A1A;
