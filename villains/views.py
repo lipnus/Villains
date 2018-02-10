@@ -97,14 +97,15 @@ def villain_detail(request,pk):
 #참고2: http://whatisthenext.tistory.com/121
 
     villain = get_object_or_404(Villain, pk=pk)
-    villain_agree, villain_agree_created = villain.agree_set.get_or_create(user=request.user)
-
-    if villain_agree_created: #생성되었다(눌렀던 적이 없음)
-        villain_agree.delete()
-        agree_ok = False
-    else: #있던걸 꺼내왔다(눌렀었음)
-        agree_ok = True
-
+    if request.user.is_authenticated:    
+        villain_agree, villain_agree_created = villain.agree_set.get_or_create(user=request.user)
+        if villain_agree_created: #생성되었다(눌렀던 적이 없음)
+            villain_agree.delete()
+            agree_ok = False
+        else: #있던걸 꺼내왔다(눌렀었음)
+            agree_ok = True
+    else:
+        agree_ok=False
     return render(request, 'villains/villain_detail.html', {'villain': villain,"pk":pk, "agree_ok":agree_ok})
 
 def villain_modify(request,pk):
