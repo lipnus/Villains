@@ -1,22 +1,59 @@
-<body>
-	<style>
-	div {
-		width: 1000px;
-	}
-	</style>
-	<div>
-{% block title %}로그인 하세요.{% endblock %}
+{% load staticfiles %}
+{% load static %}
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=yes,target-densitydpi=medium-dpi">
+
+    <title>Villains Beta</title></a>
+
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="{% static 'villains/css/base.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'villains/css/login.css' %}">
+    <script src="{% static 'villains/js/jquery-3.3.1.min.js' %}"></script>
+  </head>
+
+  <body>
 
 
-{% block content %}
 
-  <form method="post"> {% csrf_token %}
-    ID <input name="username" id="username" type="text" /><br />
-    PASSWORD <input name="password" id="password" type="password" /><br />
-    <button type="submit">로그인</button>
-    <input type="button" onclick="location.href='/join/';" value="회원가입"/>
-  </form>
-{% endblock %}
+<!-- 이건 전체 div -->
+<div>
+
+
+<!-- {% block title %}로그인 하세요.{% endblock %} -->
+
+
+
+<div class="login-box">
+	<div class ="login-title"><a href= "{% url 'index' %}" title= "메인화면"> <img src= "{% static 'villains/image/villains_logo.png' %}" class = "logoImage"><img/></a>
+	</div>
+
+	<!-- {% block content %} -->
+
+	<div class="horizontal-allign">
+    <form method="post"> {% csrf_token %}
+
+			<div class="horizon-1">
+		   	<input class="inputbox1" name="username" id="username" type="text" placeholder="아이디" />
+		    <input class="inputbox2" name="password" id="password" type="password" placeholder="비밀번호" />
+			</div>
+
+			<div class="horizon-2">
+				<button class="login-button" type="submit">로그인</button>
+			</div>
+    </form>
+	</div>
+
+  <div class= "join-container">
+    <a href="{% url 'join' %}" title="회원가입">계정이 없으신가요? ></a>
+  </div>
 
 </div>
+
+
+	<!-- {% endblock %} -->
+</div>
 </body>
+</html>

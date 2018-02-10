@@ -1,0 +1,75 @@
+body{
+  background: #f1f1f1;
+}
+
+.login-box {
+  width: 650px;
+  margin: auto;
+  margin-top: 10vh;
+}
+
+.login-title {
+  width: 650px;
+  height: 80px;
+  display: block;
+}
+
+.horizontal-allign {
+  display: block;
+}
+
+.horizon-1 {
+  display: inline-block;
+}
+
+.inputbox1 {
+  color: #837e7c;
+  font-size: 2ex;
+  padding: 20px;
+  width: 500px;
+  height: 70px;
+  background: white;
+  border: none;
+  display: block;
+}
+
+*:focus {
+    outline: none;
+}
+
+.inputbox1:focus, .inputbox2.focus {
+    outline: none !important;
+    border:1px solid #e7471e;
+}
+
+.inputbox2 {
+  color: #837e7c;
+  font-size: 2ex;
+  padding: 20px;
+  width: 500px;
+  height: 70px;
+  background: white;
+  margin-top: 15px;
+  border: none;
+  display: block;
+}
+
+.horizon-2 {
+  vertical-align: top;
+  margin-left: 10px;
+  display: inline-block;
+}
+
+.login-button {
+  height: 155px;
+  width: 120px;
+  border: 1px solid #e7471e;
+  background: #f1f1f1;
+  color: #e7471e;
+}
+
+.join-container {
+  margin-top: 30px;
+  display: block;
+  color: #e7471e;
+}

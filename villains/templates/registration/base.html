@@ -1,0 +1,42 @@
+
+{% load staticfiles %}
+{% load static %}
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=yes,target-densitydpi=medium-dpi">
+
+    <title>Villains Beta</title></a>
+
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="{% static 'villains/css/base.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'villains/css/login.css' %}">
+    <script src="{% static 'villains/js/jquery-3.3.1.min.js' %}"></script>
+  </head>
+
+  <body>
+
+    <header>
+        <a href="{% url 'register_villain' %}" title  ="글쓰기" class="register_villain">빌런 등록</a>
+
+        {% if user.is_active %}
+          {{user.username}} 님 환영합니다
+          <a href="{% url 'logout' %}" title  ="로그아웃">로그아웃</a>
+
+        {% else %}
+          <a href="{% url 'login' %}" title  ="로그인">로그인</a>
+          <a href="{% url 'join' %}" title  ="회원가입">회원가입</a><br>
+        {% endif %}
+
+        <div class ="title">
+          <a href="{% url 'index' %}" title  ="메인화면"> <img src = "{% static 'villains/image/villains_logo.png' %}" class = "logoImage"><img/> </a>
+        </div>
+    </header>
+
+    <!-- 내용이 들어갈 부분 -->
+    {% block content %}
+    {% endblock %}
+
+  </body>
+</html>
