@@ -114,10 +114,13 @@ def villain_modify(request,pk):
         form = modifyForm(request.POST,instance=villain)
         if form.is_valid():
             form.save() #변경내용을 저장
-            return redirect('index') #url에 있는 name입력하면 된다
+            return HttpResponse("<script>window.alert('수정 되었습니다!'); location.href='../../detail/%s';</script>" % pk) #확인 창 출력 후 변경된 해당 글로 리로드
     else:
-        form = modifyForm(instance=villain)
-        return render(request, "villains/villain_modify.html", {'form':form})
+        if request.user.is_authenticated and request.user.get_username()==villain.writter_id:
+            form = modifyForm(instance=villain)
+            return render(request, "villains/villain_modify.html", {'form':form})
+        else:
+            return HttpResponse("<script>window.alert('권한이 없습니다');history.back();</script>")
 
 @login_required
 @require_POST # 해당 뷰는 POST method만 받는다.
@@ -141,8 +144,11 @@ def agree(request):
 
 def delete(request,pk):
     villain = get_object_or_404(Villain, pk=pk)
-    villain.delete()
-    return redirect('index')
+    if request.user.is_authenticated and request.user.get_username()==villain.writter_id:
+        villain.delete()
+        return HttpResponse("<script>window.alert('삭제 되었습니다!'); location.href='/';</script>")
+    else:
+        return HttpResponse("<script>window.alert('권한이 없습니다');history.back();</script>")
 
 def villainSearch(request):
     q = request.GET.get('searchText','')

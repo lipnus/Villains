@@ -15,14 +15,15 @@
   <body>
 
     <header>
+        {% if user.is_active %}
         <a href="{% url 'register_villain' %}" title  ="글쓰기" class="register_villain">빌런 등록</a>
-
+        {% endif %}
         {% if user.is_active %}
           {{user.username}} 님 환영합니다
           <a href="{% url 'logout' %}" title  ="로그아웃" class = "logon">로그아웃</a>
 
         {% else %}
-          <a href="{% url 'login' %}" title  ="로그인" class = "logon">로그인</a>
+          <a href="{% url 'login' %}" title  ="로그인" class = "logon">로그인 &nbsp;</a>
           <a href="{% url 'join' %}" title  ="회원가입">회원가입</a><br>
         {% endif %}
 
