@@ -1,4 +1,5 @@
 @charset "utf-8";
+
 #ListBlock{
     margin-left:-5px;
     margin-right:-5px;
@@ -11,6 +12,7 @@
     margin:2.5px 5px 2.5px 5px;
     background-color: #CFCFCF;
 }
+
 #villainBlock>a{
     display: block;
     width:100%;
@@ -29,8 +31,8 @@
 input{
     width:700px;
     height:50px;
-    background-image : url('../image/magnifier.png'); 
-    background-position:right; 
+    background-image : url('../image/magnifier.png');
+    background-position:right;
     background-repeat:no-repeat;
     background-size:40px;
     font-size:15px;

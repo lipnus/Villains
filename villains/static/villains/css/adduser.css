@@ -5,14 +5,14 @@ body{
   font-family: 'Nanum Barun Gothic', sans-serif;
 }
 
-.login-box {
-  width: 650px;
+.join-box {
+  width: 800px;
   margin: auto;
   margin-top: 10vh;
 }
 
-.login-title {
-  width: 650px;
+.join-title {
+  width: 800px;
   height: 80px;
   display: block;
 }
@@ -25,25 +25,14 @@ body{
   display: inline-block;
 }
 
-.inputbox1 {
+.join-inputbox {
   color: #837e7c;
   font-size: 2ex;
   padding: 20px;
-  width: 500px;
-  height: 70px;
+  width: 370px;
+  height: 55px;
   background: white;
-  border: none;
-  display: block;
-}
-
-.inputbox2 {
-  color: #837e7c;
-  font-size: 2ex;
-  padding: 20px;
-  width: 500px;
-  height: 70px;
-  background: white;
-  margin-top: 15px;
+  border-radius:3px;
   border: none;
   display: block;
 }
@@ -52,42 +41,53 @@ body{
     outline: none;
 }
 
-.inputbox1:focus {
-    outline: none !important;
-    border:1px solid #e7471e;
-}
-
-.inputbox2:focus {
+.join-inputbox:focus {
     outline: none !important;
     border:1px solid #e7471e;
 }
 
 
-
-.horizon-2 {
-  vertical-align: top;
-  margin-left: 10px;
-  display: inline-block;
+.join-button-container {
+  display: block;
+  margin-top: 10px;
 }
 
-.login-button {
-  height: 155px;
-  width: 120px;
+.join-button {
+  height: 60px;
+  width: 300px;
   border: 1px solid #e7471e;
   background: #f1f1f1;
   color: #e7471e;
   transition-duration: 0.5s;
+  display: block;
+  margin: auto;
 }
 
-.login-button:hover{
+.join-button:hover{
   background: #e7471e;
   color: #ffffff;
 }
 
-.join-container {
-  margin-top: 30px;
+.join-input-container {
+  width:600px;
   display: block;
+  margin: auto;
 }
+
+.join-input-left {
+  font-size: 13px;
+  text-align: right;
+  padding-right: 20px;
+  width:90px;
+  height: 55px;
+  display: inline-block;
+}
+
+.join-input-right {
+  display: inline-block;
+}
+
+
 
 a {
   text-decoration: none;
@@ -95,15 +95,15 @@ a {
 }
 
 footer{
-    font-size: 0.7em;
-    position: absolute;
-    bottom:0px;
-    width:100%;
-    text-align: center;
-    /* background-color: #EDEDED; */
-    height:100px;
-    line-height: 100px;
-    margin-top:50px;
+  font-size: 0.7em;
+  position: absolute;
+  bottom:0px;
+  width:100%;
+  text-align: center;
+  /* background-color: #EDEDED; */
+  height:100px;
+  line-height: 100px;
+  margin-top:50px;
 }
 footer>span{
     color:#FF3A1A;

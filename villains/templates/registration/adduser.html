@@ -1,11 +1,70 @@
-<h2>회원가입</h2>
+{% load staticfiles %}
+{% load static %}
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=yes,target-densitydpi=medium-dpi">
+
+    <title>Villains Beta</title></a>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'villains/css/adduser.css' %}">
+    <script src="{% static 'villains/js/jquery-3.3.1.min.js' %}"></script>
+
+  </head>
+  <body>
+
+<div class="join-box">
+
+  <div class ="join-title">
+    <a href= "{% url 'index' %}" title= "메인화면"> <img src= "{% static 'villains/image/villains_logo.png' %}" class = "logoImage"><img/></a>
+  </div>
+
+  <form class="form" method="post" action="">{% csrf_token %}
+    <!-- {{ form.as_p }} -->
+
+    <div class="join-input-container">
+      <div class="join-input-left">아이디</div>
+      <div class="join-input-right">
+        <input class="join-inputbox" id={{form.username}}
+      </div>
+		</div>
+
+    <div class="join-input-container">
+      <div class="join-input-left">이메일</div>
+      <div class="join-input-right">
+        <input class="join-inputbox" id={{form.email}}
+      </div>
+		</div>
+
+    <div class="join-input-container">
+      <div class="join-input-left">비밀번호</div>
+      <div class="join-input-right">
+        <input class="join-inputbox" id={{form.password}}
+      </div>
+		</div>
+
+    <div class="join-input-container">
+      <div class="join-input-left">비밀번호 확인</div>
+      <div class="join-input-right">
+        <input class="join-inputbox" id={{form.verify_password}}
+      </div>
+		</div>
+
+    <div class="join-button-container">
+      <input class="join-button" type="submit" value="회원가입"/><br/>
+    </div>
+  </form>
+
+</div>
 
 
 
-<form class="form" method="post" action="">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="회원가입" /><br />
-	<input type="button" onclick="location.href='/index/';" value="홈으로">
-</form>
 
+
+<footer>
+  Copyright (c) <span>KWEB</span> All Rights Reserved.
+</footer>
+
+</body>
+</html>
