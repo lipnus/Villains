@@ -1,11 +1,81 @@
-{% extends "registration/base.html" %}
 {% load i18n %}
-
 {% block content %}
-<form method="post" action=".">
-  {% csrf_token %}
-  {{ form.as_p }}
-
-  <input type="submit" value="{% trans 'Submit' %}" />
-</form>
+{% load staticfiles %}
+<html>
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=yes,target-densitydpi=medium-dpi">
+  
+      <title>Villains Beta</title></a>
+  
+      <link rel="stylesheet" type="text/css" href="{% static 'villains/css/adduser.css' %}">
+      <script src="{% static 'villains/js/jquery-3.3.1.min.js' %}"></script>
+  
+    </head>
+    <body>
+  
+  <div class="join-box">
+  
+    <div class ="join-title">
+      <a href= "{% url 'index' %}" title= "메인화면"> <img src= "{% static 'villains/image/villains_logo.png' %}" class = "logoImage"><img/></a>
+    </div>
+    <form class="form" method="post" action="">{% csrf_token %}
+       <!--{{ form.as_p }}-->
+      <div class="join-input-container">
+        <div class="join-input-left">아이디</div>
+        <div class="join-input-right">
+          <input class="join-inputbox" placeholder="150자 이하 문자, 숫자, @/./+/-만 가능합니다" name="username" id="id_username" maxlength="150"/> 
+        </div>
+      </div>
+      {% if form.username.errors %}
+           {% for error in form.username.errors %}
+               <div class="registration_alert">
+                   {{ error|escape }}
+               </div>
+           {% endfor %}
+      {% endif %}
+      <div class="join-input-container">
+        <div class="join-input-left">이메일</div>
+        <div class="join-input-right">
+          <input class="join-inputbox" name="email" placeholder="현재 고려대학교 메일만 지원합니다" required id="id_email"/>
+        </div>
+      </div>
+      {% if form.email.errors %}
+           {% for error in form.email.errors %}
+               <div class="registration_alert">
+                   {{ error|escape }}
+               </div>
+           {% endfor %}
+      {% endif %}
+      <div class="join-input-container">
+        <div class="join-input-left">비밀번호</div>
+        <div class="join-input-right">
+          <input class="join-inputbox" type="password" placeholder="숫자로만 구성할 수 없으며, 8자 이상이어야 합니다" name="password1" required id="id_password1"/>
+        </div>
+      </div>
+      <div class="join-input-container">
+        <div class="join-input-left">비밀번호 확인</div>
+        <div class="join-input-right">
+          <input class="join-inputbox" type="password" name="password2" required id = "id_password2"/>
+        </div>
+      </div>
+      {% if form.password2.errors %}
+           {% for error in form.password2.errors %}
+               <div class="registration_alert">
+                   {{ error|escape }}
+               </div>
+           {% endfor %}
+      {% endif %}
+      <div class="join-button-container">
+        <input class="join-button" type="submit" value="회원가입"/><br/>
+      </div>
+    </form>
+  
+  </div>
+  <footer>
+    Copyright (c) <span>KWEB</span> All Rights Reserved.
+  </footer>
+  
+  </body>
+  </html>
 {% endblock %}

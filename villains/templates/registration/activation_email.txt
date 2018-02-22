@@ -1,5 +1,5 @@
-{% load i18n %}{% trans "Activate account at" %} {{ site.name }}:
-
+{% load i18n %}{% trans "Villains 학교 인증 확인 메일입니다." %}
+아래의 링크를 클릭해서 인증 해 주세요!
 http://{{ site.domain }}{% url 'registration_activate' activation_key %}
-
-{% blocktrans %}Link is valid for {{ expiration_days }} days.{% endblocktrans %}
+{% blocktrans %}링크는 {{ expiration_days }}일 동안 유효합니다.
+{{ expiration_days }}일 후에는, 처음부터 다시 회원 가입을 해 주셔야 합니다.{% endblocktrans %}

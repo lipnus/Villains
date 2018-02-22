@@ -26,7 +26,6 @@ urlpatterns = [
     url(r'^login/', views.signin, name='login'),
     url(r'^logout/', views.signout, name='logout'),
     url(r'^join/', views.signup, name='join'),
-
     url(r'^register_villain/$', views.register_villain, name='register_villain'),
     url(r'^detail/(?P<pk>[0-9]+)/$', views.villain_detail, name='villain_detail'),
     url(r'^modify/(?P<pk>[0-9]+)/$', views.villain_modify, name='villain_modify'),
@@ -34,4 +33,5 @@ urlpatterns = [
     url(r'^delete/(?P<pk>[0-9]+)/$', views.delete, name='villain_delete'),
     url(r'^search$', views.villainSearch, name='villainSearch'),
     url(r'^accounts/', include('registration.backends.hmac.urls')),
+    
 ]

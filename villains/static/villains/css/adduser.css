@@ -87,7 +87,11 @@ body{
   display: inline-block;
 }
 
-
+.registration_alert{
+  text-align: center;
+  color:red;
+  margin-bottom:15px;
+}
 
 a {
   text-decoration: none;
@@ -108,3 +112,4 @@ footer{
 footer>span{
     color:#FF3A1A;
 }
+

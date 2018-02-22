@@ -1,1 +1,1 @@
-{% load i18n %}{% trans "Account activation on" %} {{ site.name }}
+{% load i18n %}{% trans "Villains 학교 인증 확인 메일입니다" %} {{ site.name }}

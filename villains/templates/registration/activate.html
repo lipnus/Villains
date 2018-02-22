@@ -1,8 +1,10 @@
 {% extends "registration/base.html" %}
 {% load i18n %}
-
 {% block content %}
-
-<div class="">{% trans "인증에 실패했습니다<br>아이디가 사라졌거나, 잘못된 링크일 수 있습니다." %}</div>
-
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'villains/css/activate.css' %}">
+<div class="activateFail">
+    {% trans "인증에 실패했습니다<br>아이디가 사라졌거나, 잘못된 링크일 수 있습니다." %}<br><br>
+    <a href="{% url 'index' %}">메인으로</a>
+</div>
 {% endblock %}

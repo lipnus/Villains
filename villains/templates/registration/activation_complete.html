@@ -1,5 +1,11 @@
-{% extends "base.html" %}
+{% extends "registration/base.html" %}
 {% load i18n %}
 {% block content %}
-<p>{% trans "Your account is now activated." %}</p>
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'villains/css/activate.css' %}">
+<div class="activateFail">
+    {% trans "성공적으로 가입되었습니다<br>이제 로그인 후, Villains를 이용하실 수 있습니다." %}<br><br>
+    <a href="{% url 'login' %}">로그인</a>&nbsp;
+    <a href="{% url 'index' %}">메인으로</a>
+</div>
 {% endblock %}
