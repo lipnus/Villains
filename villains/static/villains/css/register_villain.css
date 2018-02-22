@@ -55,8 +55,8 @@ hr {
 }
 
 #register-input-name {
-  width: 90px;
-  margin-right: 40px;
+  width: 110px;
+  margin-right: 30px;
 }
 
 #register-input-univ {
@@ -65,7 +65,7 @@ hr {
 
 #register-input-major {
   width: 160px;
-  margin-right: 40px;
+  margin-right: 30px;
 }
 
 #register-input-classname {
@@ -85,18 +85,19 @@ hr {
 }
 
 #register-submit{
-  border-radius: 3px;
+  border-radius: 4px;
   margin-top: 20px;
   font-size: 20px;
   height: 70px;
   width: 800px;
-  background: #e7471e;
-  color: #ffffff;
-  border-style: none;
+  border: 1px solid #e7471e;
+  background: #ffffff;
+  color: #e7471e;
   transition-duration: 0.5s;
 }
 
 #register-submit:hover{
-  background: red;
-  font-size: 25px;
+  background:#e7471e;
+  font-size: 22px;
+  color: #ffffff;
 }
