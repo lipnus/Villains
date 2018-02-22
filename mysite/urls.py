@@ -15,8 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
-from django.conf.urls import url
+from django.conf.urls import include,url
 from villains import views
 
 
@@ -34,4 +33,5 @@ urlpatterns = [
     url(r'^agree$', views.agree, name='agree'),
     url(r'^delete/(?P<pk>[0-9]+)/$', views.delete, name='villain_delete'),
     url(r'^search$', views.villainSearch, name='villainSearch'),
+    url(r'^accounts/', include('registration.backends.hmac.urls')),
 ]

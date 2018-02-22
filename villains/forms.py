@@ -46,7 +46,6 @@ class LoginForm(forms.ModelForm):
         model = User
         fields = ['username', 'password']
 
-
 class VillainForm(ModelForm):
     class Meta:
         model = Villain
