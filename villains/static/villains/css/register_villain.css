@@ -1,0 +1,102 @@
+@charset "utf-8";
+
+.register-highlight{
+    color:#FF3A1A;
+    font-size: 18px;
+}
+
+.register-main{
+  margin-left:auto;
+  margin-right:auto;
+  width:800px;
+  height:auto;
+  line-height:30px;
+  margin-top: 15px;
+}
+
+.register-input-box{
+  font-size: 18px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.register-input-box2{
+  font-size: 18px;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.register-input-box2-horizontal{
+  margin-bottom: 15px;
+}
+
+.register-input-box > p3 {
+  margin-right: 10px;
+}
+
+.register-input-box > input{
+  border: 1px solid #d8d8d8;
+   border-radius: 3px;
+  font-size: 15px;
+  padding: 6px;
+  height: 40px;
+}
+
+.register-input-box > input:focus {
+    outline: none !important;
+    border:1px solid #e7471e;
+}
+
+hr {
+  border-width:  1px 0px 0px 0px;
+  height: 1px;
+  border-style: solid;
+  border-color:  #e5e4e4;
+}
+
+#register-input-name {
+  width: 90px;
+  margin-right: 40px;
+}
+
+#register-input-univ {
+  width: 120px;
+}
+
+#register-input-major {
+  width: 160px;
+  margin-right: 40px;
+}
+
+#register-input-classname {
+  width: 180px;
+}
+
+#register-textarea {
+  padding: 10px;
+  line-height: 30px;
+  height: 300px;
+  border-radius: 3px;
+}
+
+#register-textarea:focus {
+  outline: none !important;
+  border:1px solid #e7471e;
+}
+
+#register-submit{
+  border-radius: 3px;
+  margin-top: 20px;
+  font-size: 20px;
+  height: 70px;
+  width: 800px;
+  background: #e7471e;
+  color: #ffffff;
+  border-style: none;
+  transition-duration: 0.5s;
+}
+
+#register-submit:hover{
+  background: red;
+  font-size: 25px;
+}
