@@ -1,18 +1,37 @@
 {% extends 'villains/base.html' %}
 {% block content %}
 
-    <div class="main">
-        <p3 class ="highlight">빌런 프로필</p3><br>
-          <form method = "POST">
+    <div class="register-main">
+        <p3 class ="register-highlight">빌런 프로필</p3><br>
+
+          <form  method = "POST">
               {% csrf_token %}
-              <p3>이름 </p3>{{form.villain_name}} &nbsp;
-              <p3>소속 </p3>{{form.univ}} {{form.major}} &nbsp;
-              <p3>수업 </p3>{{form.class_name}}
-              <p3>악명</p3> {{form.bomb}}
+
+              <div class="register-input-box">
+                <p3>별명 </p3><input id="register-input-name" id={{form.villain_name}}
+
+                <p3>소속 </p3>
+                <input id="register-input-univ" id={{form.univ}}
+                <input id="register-input-major" id={{form.major}}
+
+                <p3>수업 </p3><input id="register-input-classname" id={{form.class_name}}
+                <!-- <p3>악명</p3><input id="register-input-bomb" id={{form.bomb}} -->
+              </div>
+
               <hr>
-              <p3 class = "highlight">활약상</p3>
-              <br>{{form.content}}<br>
-              <input type = "submit" value = "등록하기" class="submit"></input>
+
+              <div class="register-input-box2">
+
+                <!-- <p3 class= "register-highlight">활약상</p3> -->
+
+                <div class="register-input-box2-horizontal">
+                  <p3 class= "register-highlight">활약상</p3>
+                </div>
+
+                <textarea id="register-textarea" form={{form.content}}
+
+                <input type = "submit" value = "등록하기" id="register-submit"></input>
+              </div>
           </form>
     </div>
 

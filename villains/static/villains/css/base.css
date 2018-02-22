@@ -34,7 +34,7 @@ header{
 }
 .title{
     margin-left:-10px;
-    padding-top:20px;
+    padding-top:40px;
     padding-bottom:20px;
     text-align:left;
 }
@@ -64,14 +64,14 @@ header{
     margin-left:10px;
 }
 footer{
-    position: absolute;
+    /* position:fixed; */
+    margin-top: 100px;
     bottom:0px;
     width:100%;
     text-align: center;
     background-color: #EDEDED;
-    height:100px;
+    height:200px;
     line-height: 100px;
-    margin-top:50px;
 }
 footer>span{
     color:#FF3A1A;

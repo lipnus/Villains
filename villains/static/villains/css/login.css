@@ -34,6 +34,7 @@ body{
   background: white;
   border: none;
   display: block;
+  transition-duration: 0.5s;
 }
 
 .inputbox2 {
@@ -46,6 +47,7 @@ body{
   margin-top: 15px;
   border: none;
   display: block;
+  transition-duration: 0.5s;
 }
 
 *:focus {
