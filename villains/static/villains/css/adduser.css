@@ -61,6 +61,8 @@ body{
   transition-duration: 0.5s;
   display: block;
   margin: auto;
+  text-align: center;
+  line-height: 60px;
 }
 
 .join-button:hover{
@@ -110,6 +112,9 @@ footer{
   margin-top:50px;
 }
 footer>span{
-    color:#FF3A1A;
+  color:#FF3A1A;
+}
+.univ_email_error{
+  display:none;
 }
 

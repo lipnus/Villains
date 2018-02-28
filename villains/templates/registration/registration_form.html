@@ -10,7 +10,7 @@
   
       <link rel="stylesheet" type="text/css" href="{% static 'villains/css/adduser.css' %}">
       <script src="{% static 'villains/js/jquery-3.3.1.min.js' %}"></script>
-  
+      <script type = "text/javascript" src="{% static 'villains/js/registraion_form.js' %}"></script>
     </head>
     <body>
   
@@ -47,6 +47,9 @@
                </div>
            {% endfor %}
       {% endif %}
+        <div class = "univ_email_error registration_alert">
+          지원되지 않는 학교입니다<br>현재 고려대학교 메일만 지원합니다.
+        </div>
       <div class="join-input-container">
         <div class="join-input-left">비밀번호</div>
         <div class="join-input-right">
@@ -67,7 +70,7 @@
            {% endfor %}
       {% endif %}
       <div class="join-button-container">
-        <input class="join-button" type="submit" value="회원가입"/><br/>
+        <div class="join-button" onclick="submit();" value="회원가입">회원가입</div>
       </div>
     </form>
   
