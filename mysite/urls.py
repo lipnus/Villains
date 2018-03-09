@@ -17,12 +17,13 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include,url
 from villains import views
+from registration.backends.default.views import RegistrationView
+from registration.forms import RegistrationFormUniqueEmail
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^$', views.index, name='index'),
-
     url(r'^login/', views.signin, name='login'),
     url(r'^logout/', views.signout, name='logout'),
     url(r'^join/', views.signup, name='join'),
@@ -32,6 +33,8 @@ urlpatterns = [
     url(r'^agree$', views.agree, name='agree'),
     url(r'^delete/(?P<pk>[0-9]+)/$', views.delete, name='villain_delete'),
     url(r'^search$', views.villainSearch, name='villainSearch'),
+    url(r'^accounts/register/$',
+        RegistrationView.as_view(form_class=RegistrationFormUniqueEmail),
+        name='registration_register'),
     url(r'^accounts/', include('registration.backends.hmac.urls')),
-    
 ]
