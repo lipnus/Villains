@@ -1,6 +1,8 @@
 
 {% extends 'villains/base.html' %}
 {% block content %}
+{% load staticfiles %}
+
 <div class="main">
     <div class = "detail_img">
                 이미지
@@ -11,9 +13,18 @@
                 소속 | {{villain.univ}} {{villain.major}}<br>
                 과목 | {{villain.class_name}}
             </div>
-            <div class="detailBomb">폭탄 : {{villain.bomb}}</div>
+            <div class="detailBomb">
+              {% for i in "x"|rjust:villain.bomb %}
+                <img src="{% static 'villains/image/bomb_on.png' %}">
+              {% endfor %}
+              {% for i in "x"|rjust:gray_num %}
+                <img src="{% static 'villains/image/bomb_off.png' %}">
+              {% endfor %}
+            </div>
         </div>
-       <hr>
+
+       <hr id="orange_hr">
+
        <div class ="detailButtons">
          {% if agree_ok %}
             <div class = "agree" style="color:white; background-color:#f0532d;">{{villain.agree_count}} 인정</div><br>
