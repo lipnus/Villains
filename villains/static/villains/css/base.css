@@ -78,12 +78,15 @@ footer>span{
 }
 @media(max-width:810px){
     header{
-        width:96vw;
+        width:93vw;
     }
     .main{
-        width:98vw;
+        width:94vw;
     }
     .title{
         margin-left:0;
+    }
+    .menuTab{
+        margin-right:2vw;
     }
 }

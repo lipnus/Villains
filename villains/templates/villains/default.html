@@ -16,10 +16,10 @@
       <input type="text" class="searchText" placeholder="키워드를 입력하세요...">
     </div>
 
-      <div id="ListBlock" class ="searchBlock"></div> <!--검색 결과가 나타나는 div-->
-      <div id="ListBlock" class="originalBlock"> <!--모든 빌런들이 나타나는 초기 div-->
+      <div class="ListBlock searchBlock"></div> <!--검색 결과가 나타나는 div-->
+      <div class="ListBlock originalBlock"> <!--모든 빌런들이 나타나는 초기 div-->
           {% for villain in villainList %}
-          <div id = "villainBlock">
+          <div class = "villainBlock">
             <a href="{% url 'villain_detail' pk=villain.pk %}">
             <div class = "villainClass">{{villain.major}}<br>강의명 : {{villain.class_name}}</div>
             <div class = "villainName">{{villain.villain_name}}</div>

@@ -21,7 +21,7 @@ function searchAjax(){
                     var str="";
                     if(result.length>0){
                         for(var i=0; i<result.length; i++){
-                            str+='<div id="villainBlock">'
+                            str+='<div class="villainBlock">'
                             +'<a href="detail/'+result[i].pk+'/">'
                             +'<div class = "villainClass">'+result[i].major
                             +'<br>강의명 : '+result[i].className

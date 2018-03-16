@@ -17,6 +17,7 @@
   <body>
 
     <header>
+      <div class = "menuTab">
         {% if user.is_active %}
         <a href="{% url 'register_villain' %}" title  ="글쓰기" class="register_villain">빌런 등록</a>
         {% endif %}
@@ -28,7 +29,7 @@
           <a href="{% url 'login' %}" title  ="로그인" class = "logon">로그인 &nbsp;</a>
           <a href="{% url 'registration_register' %}" title  ="회원가입">회원가입</a><br>
         {% endif %}
-
+      </div>
         <div class ="title">
           <a href="{% url 'index' %}" title  ="메인화면"> <img src = "{% static 'villains/image/villains_logo.png' %}" class = "logoImage"><img/> </a>
         </div>
