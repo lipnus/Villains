@@ -80,14 +80,16 @@ def signup(request):
 
 def register_villain(request):
     if request.method == "POST": #save update_date
+
         form = VillainForm(request.POST)
         if form.is_valid():
-
             villain = form.save(commit = False)
             villain.writter_id = request.user.get_username() #글쓴이는 auth와 연계하여 자동입력
             villain.generate()
-
             return redirect('index') #url에 있는 name입력하면 된다
+        else:
+            form = VillainForm()
+            return render(request, "villains/register_villain.html", {"form":form})
     else:
         form = VillainForm()
         return render(request, "villains/register_villain.html", {"form":form})
@@ -97,7 +99,7 @@ def villain_detail(request,pk):
 #참고2: http://whatisthenext.tistory.com/121
 
     villain = get_object_or_404(Villain, pk=pk)
-    if request.user.is_authenticated:    
+    if request.user.is_authenticated:
         villain_agree, villain_agree_created = villain.agree_set.get_or_create(user=request.user)
         if villain_agree_created: #생성되었다(눌렀던 적이 없음)
             villain_agree.delete()
@@ -106,7 +108,8 @@ def villain_detail(request,pk):
             agree_ok = True
     else:
         agree_ok=False
-    return render(request, 'villains/villain_detail.html', {'villain': villain,"pk":pk, "agree_ok":agree_ok})
+    gray_num = 5-villain.bomb #빈 폭탄칸 개수
+    return render(request, 'villains/villain_detail.html', {'villain': villain,"pk":pk, "agree_ok":agree_ok, "gray_num":gray_num})
 
 def villain_modify(request,pk):
     villain = get_object_or_404(Villain, pk=pk)
@@ -166,11 +169,11 @@ def villainSearch(request):
         elif searchType=="content":
             villains = villains.filter(content__icontains=q)
 
-    
+
     s=[]
     for villain in villains:
         n={"name":villain.villain_name,"univ":villain.univ,"major":villain.major,"className":villain.class_name,"bomb":villain.bomb,"pk":villain.pk}
         s.append(n)
-        
+
     result = s
     return HttpResponse(json.dumps(result), content_type="application/json")

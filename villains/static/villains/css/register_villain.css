@@ -26,9 +26,7 @@
   margin-bottom: 5px;
 }
 
-.register-input-box2-horizontal{
-  margin-bottom: 15px;
-}
+
 
 .register-input-box > p3 {
   margin-right: 10px;
@@ -42,9 +40,33 @@
   height: 40px;
 }
 
+
 .register-input-box > input:focus {
     outline: none !important;
     border:1px solid #e7471e;
+
+    -webkit-transition: all 0.50s ease-in-out;
+    -moz-transition: all 0.50s ease-in-out;
+    -ms-transition: all 0.50s ease-in-out;
+    -o-transition: all 0.50s ease-in-out;
+}
+
+.register-input-box2-horizontal{
+  display: inline-block;
+  margin-bottom: 15px;
+  width: 10%;
+}
+
+.register-bombset {
+  display: inline-block;
+  width: 89%;
+  text-align: right;
+}
+
+.register-bombset > img {
+  display: inline;
+  width: 30px;
+  height: auto;
 }
 
 hr {
@@ -55,12 +77,13 @@ hr {
 }
 
 #register-input-name {
-  width: 110px;
+  width: 100px;
   margin-right: 30px;
+
 }
 
 #register-input-univ {
-  width: 120px;
+  width: 110px;
 }
 
 #register-input-major {
@@ -74,7 +97,7 @@ hr {
 
 #register-textarea {
   padding: 10px;
-  line-height: 30px;
+  /* line-height: 30px; */
   height: 300px;
   border-radius: 3px;
 }
@@ -82,6 +105,11 @@ hr {
 #register-textarea:focus {
   outline: none !important;
   border:1px solid #e7471e;
+
+  -webkit-transition: all 0.50s ease-in-out;
+  -moz-transition: all 0.50s ease-in-out;
+  -ms-transition: all 0.50s ease-in-out;
+  -o-transition: all 0.50s ease-in-out;
 }
 
 #register-submit{
@@ -98,6 +126,10 @@ hr {
 
 #register-submit:hover{
   background:#e7471e;
-  font-size: 22px;
+  font-size: 20px;
   color: #ffffff;
+}
+
+#hide-bomb-input{
+  display: none;
 }

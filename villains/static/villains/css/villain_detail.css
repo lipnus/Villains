@@ -28,8 +28,13 @@
     right:0;
     bottom:0;
 }
-hr{
-    border-color:#FF3A1A;
+
+#orange_hr{
+    border-width:  1px 0px 0px 0px;
+    height: 1px;
+    border-style: solid;
+    border-color:red;
+    margin-bottom: 30px;
 }
 .detailButtons{
     display:inline-block;
@@ -59,6 +64,12 @@ hr{
 .protest{
     width:100%;
 }
+
+.detailBomb img{
+  width: 30px;
+  height: auto;
+}
+
 .detailFooter{
     position:relative;
     width:690px;

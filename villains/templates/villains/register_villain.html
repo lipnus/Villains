@@ -1,5 +1,6 @@
 {% extends 'villains/base.html' %}
 {% block content %}
+{% load staticfiles %}
 
     <div class="register-main">
         <p3 class ="register-highlight">빌런 프로필</p3><br>
@@ -8,31 +9,109 @@
               {% csrf_token %}
 
               <div class="register-input-box">
-                <p3>별명 </p3><input id="register-input-name" id={{form.villain_name}}
+                <p3>별명 </p3><input id="register-input-name" {{form.villain_name}}
 
                 <p3>소속 </p3>
-                <input id="register-input-univ" id={{form.univ}}
-                <input id="register-input-major" id={{form.major}}
+                <input id="register-input-univ" {{form.univ}}
+                <input id="register-input-major" {{form.major}}
 
-                <p3>수업 </p3><input id="register-input-classname" id={{form.class_name}}
-                <!-- <p3>악명</p3><input id="register-input-bomb" id={{form.bomb}} -->
+                <p3>수업 </p3><input id="register-input-classname" {{form.class_name}}
               </div>
 
               <hr>
 
               <div class="register-input-box2">
 
-                <!-- <p3 class= "register-highlight">활약상</p3> -->
-
                 <div class="register-input-box2-horizontal">
                   <p3 class= "register-highlight">활약상</p3>
                 </div>
 
-                <textarea id="register-textarea" form={{form.content}}
+                <div class="register-bombset">
+                  <img id="register-bomb1" name="bomb_img" src="{% static 'villains/image/bomb_on.png' %}">
+                  <img id="register-bomb2" name="bomb_img" src="{% static 'villains/image/bomb_off.png' %}">
+                  <img id="register-bomb3" name="bomb_img" src="{% static 'villains/image/bomb_off.png' %}">
+                  <img id="register-bomb4" name="bomb_img" src="{% static 'villains/image/bomb_off.png' %}">
+                  <img id="register-bomb5" name="bomb_img" src="{% static 'villains/image/bomb_off.png' %}">
+                </div>
+
+
+                <!-- 안보임. 장고값 조절하는거 몰라서 이걸 이용-->
+                <input id="hide-bomb-input"{{form.bomb}}
+
+                <textarea id="register-textarea" {{form.content}}
 
                 <input type = "submit" value = "등록하기" id="register-submit"></input>
               </div>
           </form>
     </div>
+
+
+
+<!-- 폭탄클릭 -->
+<script>
+        document.querySelector('#register-bomb1').addEventListener('click', function(e) {
+          document.getElementById('hide-bomb-input').value = 1;
+
+          document.getElementById('register-bomb1').src="{% static 'villains/image/bomb_on.png' %}";
+          document.getElementById('register-bomb2').src="{% static 'villains/image/bomb_off.png' %}";
+          document.getElementById('register-bomb3').src="{% static 'villains/image/bomb_off.png' %}";
+          document.getElementById('register-bomb4').src="{% static 'villains/image/bomb_off.png' %}";
+          document.getElementById('register-bomb5').src="{% static 'villains/image/bomb_off.png' %}";
+          // bombCount(1);
+        })
+
+        document.querySelector('#register-bomb2').addEventListener('click', function(e) {
+          document.getElementById('hide-bomb-input').value = 2;
+          document.getElementById('register-bomb1').src="{% static 'villains/image/bomb_on.png' %}";
+          document.getElementById('register-bomb2').src="{% static 'villains/image/bomb_on.png' %}";
+          document.getElementById('register-bomb3').src="{% static 'villains/image/bomb_off.png' %}";
+          document.getElementById('register-bomb4').src="{% static 'villains/image/bomb_off.png' %}";
+          document.getElementById('register-bomb5').src="{% static 'villains/image/bomb_off.png' %}";
+          // bombCount(2);
+        })
+
+        document.querySelector('#register-bomb3').addEventListener('click', function(e) {
+          document.getElementById('hide-bomb-input').value = 3;
+          document.getElementById('register-bomb1').src="{% static 'villains/image/bomb_on.png' %}";
+          document.getElementById('register-bomb2').src="{% static 'villains/image/bomb_on.png' %}";
+          document.getElementById('register-bomb3').src="{% static 'villains/image/bomb_on.png' %}";
+          document.getElementById('register-bomb4').src="{% static 'villains/image/bomb_off.png' %}";
+          document.getElementById('register-bomb5').src="{% static 'villains/image/bomb_off.png' %}";
+          // bombCount(3);
+        })
+
+        document.querySelector('#register-bomb4').addEventListener('click', function(e) {
+          document.getElementById('hide-bomb-input').value = 4;
+          document.getElementById('register-bomb1').src="{% static 'villains/image/bomb_on.png' %}";
+          document.getElementById('register-bomb2').src="{% static 'villains/image/bomb_on.png' %}";
+          document.getElementById('register-bomb3').src="{% static 'villains/image/bomb_on.png' %}";
+          document.getElementById('register-bomb4').src="{% static 'villains/image/bomb_on.png' %}";
+          document.getElementById('register-bomb5').src="{% static 'villains/image/bomb_off.png' %}";
+          // bombCount(4);
+        })
+
+        document.querySelector('#register-bomb5').addEventListener('click', function(e) {
+          document.getElementById('hide-bomb-input').value = 5;
+          document.getElementById('register-bomb1').src="{% static 'villains/image/bomb_on.png' %}";
+          document.getElementById('register-bomb2').src="{% static 'villains/image/bomb_on.png' %}";
+          document.getElementById('register-bomb3').src="{% static 'villains/image/bomb_on.png' %}";
+          document.getElementById('register-bomb4').src="{% static 'villains/image/bomb_on.png' %}";
+          document.getElementById('register-bomb5').src="{% static 'villains/image/bomb_on.png' %}";
+          // bombCount(5);
+        })
+
+        function bombCount(num){
+
+          //이거하면 되긴되는데 에러뜸. Name이랑 src랑 같이 쓰면 그런듯.
+
+          for(var i=0; i<num; i++){
+            document.getElementByName('bomb_img')[i].src="{% static 'villains/image/bomb_on.png' %}";
+          }
+
+          for(var i=num; i<=5; i++){
+            document.getElementsByName('bomb_img')[i].src="{% static 'villains/image/bomb_off.png' %}";
+          }
+        }
+</script>
 
 {% endblock %}
