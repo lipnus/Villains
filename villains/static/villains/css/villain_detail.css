@@ -50,7 +50,7 @@
     height:200px;
 }
 .agree{
-    width:100%;
+    width:95px;
     height:25px;
     line-height: 25px;
     border-width:1px;
@@ -62,26 +62,81 @@
     cursor: pointer;
 }
 .protest{
-    width:100%;
+    margin-top:5px;
+    width:95px;
+    height:25px;
+    line-height: 25px;
+    border-width:1px;
+    border-color:#E6E6DF;
+    border-radius:5px;
+    border-style: solid;
+    text-align: center;
+    font-size:12px;
+    cursor: pointer;
 }
-
+.detailInfo{
+    width:615px;
+    display:inline-block;
+}
 .detailBomb img{
   width: 30px;
   height: auto;
 }
 
 .detailFooter{
-    position:relative;
     width:690px;
     padding-left:110px;
     color:#CFCFCF;
     font-size:15px;
 }
 .detailFooterButton{
-    position: absolute;
-    right:0;
+    width:70px;
+    display: inline-block;
+    text-align: right;
 }
 .detailFooterButton > a{
     text-decoration: none;
     color:#CFCFCF;
+}
+
+@media screen and (max-width:808px){
+    .detailButtons{
+        position:relative;
+        width:100%;
+        height:50px;
+        padding-right:0px;
+    }
+    .detailHeader{
+        height:90px;
+    }
+    .detailBomb{
+
+    }
+    .agree{
+        position:absolute;
+        width:100px;
+        right:106px;
+    }
+    .protest{
+        position: absolute;
+        width:100px;
+        right:0px;
+        margin-top:0px;
+    }
+    .detailContent{
+        width:100%;
+    }
+    .detailFooter{
+        width:100%;
+        padding-left:0px;
+    }
+    .detailInfo{
+        width:100%;
+    }
+    .detailFooterButton{
+        width:100%;
+    }
+}
+@media screen and (max-width:600px){
+
 }

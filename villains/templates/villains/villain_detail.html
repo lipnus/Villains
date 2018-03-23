@@ -27,18 +27,22 @@
 
        <div class ="detailButtons">
          {% if agree_ok %}
-            <div class = "agree" style="color:white; background-color:#f0532d;">{{villain.agree_count}} 인정</div><br>
+            <div class = "agree" style="color:white; background-color:#f0532d;">{{villain.agree_count}} 인정</div>
          {% else %}
-            <div class = "agree">{{villain.agree_count}} 인정</div><br>
+            <div class = "agree">{{villain.agree_count}} 인정</div>
          {% endif %}
-         <input type="button" class = "protest" value ="이의제기"></input>
+         <div class = "protest">
+           이의제기
+        </div>
        </div>
 
        <div class = "detailContent">{{villain.content}}</div>
        <div class = "detailFooter">
+        <div class = "detailInfo">
            {{villain.writter_id}} {{villain.update_date}} 작성
+          </div>
            {% if user.username == villain.writter_id %}
-           <span class = "detailFooterButton"><a href="{% url 'villain_modify' pk=villain.pk %}">수정</a> / <a href = "{% url 'villain_delete' pk=villain.pk %}">삭제</a></span>
+           <div class = "detailFooterButton"><a href="{% url 'villain_modify' pk=villain.pk %}">수정</a> / <a href = "{% url 'villain_delete' pk=villain.pk %}">삭제</a></div>
            {% endif %}
        </div>
 

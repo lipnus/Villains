@@ -1,11 +1,11 @@
 @charset "utf-8";
 
-.register-highlight{
+.highlight{
     color:#FF3A1A;
     font-size: 18px;
 }
 
-.register-main{
+.main{
   margin-left:auto;
   margin-right:auto;
   width:800px;
@@ -15,27 +15,25 @@
   padding-bottom:170px;
 }
 
-.register-input-box{
+.modify-input-box{
   font-size: 18px;
   margin-top: 15px;
   margin-bottom: 15px;
 }
 
-.register-input-box2{
+.modify-input-box2{
   font-size: 18px;
   margin-top: 15px;
   margin-bottom: 5px;
 }
 
-.input-detail-box{
-  display:inline-block;
-}
 
-.register-input-box > p3 {
+
+.modify-input-box > p3 {
   margin-right: 10px;
 }
 
-.input-detail-box > input{
+.modify-input-box > input{
   border: 1px solid #d8d8d8;
   border-radius: 3px;
   font-size: 15px;
@@ -44,7 +42,7 @@
 }
 
 
-.input-detail-box > input:focus {
+.modify-input-box > input:focus {
     outline: none !important;
     border:1px solid #e7471e;
 
@@ -54,19 +52,19 @@
     -o-transition: all 0.50s ease-in-out;
 }
 
-.register-input-box2-horizontal{
+.modify-input-box2-horizontal{
   display: inline-block;
   margin-bottom: 15px;
   width: 80px;
 }
 
-.register-bombset {
+.modify-bombset {
   display: inline-block;
   width: 89%;
   text-align: right;
 }
 
-.register-bombset > img {
+.modify-bombset > img {
   display: inline;
   width: 30px;
   height: auto;
@@ -79,33 +77,33 @@ hr {
   border-color:  #e5e4e4;
 }
 
-#register-input-name {
+#modify-input-name {
   width: 100px;
   margin-right: 30px;
 
 }
 
-#register-input-univ {
+#modify-input-univ {
   width: 110px;
 }
 
-#register-input-major {
+#modify-input-major {
   width: 160px;
   margin-right: 30px;
 }
 
-#register-input-classname {
+#modify-input-classname {
   width: 180px;
 }
 
-#register-textarea {
+#modify-textarea {
   padding: 10px;
   /* line-height: 30px; */
   height: 300px;
   border-radius: 3px;
 }
 
-#register-textarea:focus {
+#modify-textarea:focus {
   outline: none !important;
   border:1px solid #e7471e;
 
@@ -115,7 +113,7 @@ hr {
   -o-transition: all 0.50s ease-in-out;
 }
 
-#register-submit{
+#modify-submit{
   border-radius: 4px;
   margin-top: 20px;
   font-size: 20px;
@@ -127,7 +125,7 @@ hr {
   transition-duration: 0.5s;
 }
 
-#register-submit:hover{
+#modify-submit:hover{
   background:#e7471e;
   font-size: 20px;
   color: #ffffff;
@@ -137,14 +135,14 @@ hr {
   display: none;
 }
 @media screen and (max-width:805px){
-  .register-main{
+  .main{
     width:94vw;
     
   }
   .detail{
     width:100%;
   }
-  #register-submit{
+  #modify-submit{
     width:100%;
   }
   .register-bombset{
@@ -159,8 +157,8 @@ hr {
   }
 }
 @media screen and (max-width:365px){
-  #register-input-major{
-    margin-left:35px;
-    margin-top:3px;
-  }
+    #modify-input-major{
+        margin-left:35px;
+        margin-top:3px;
+      }
 }

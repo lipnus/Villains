@@ -9,13 +9,19 @@
               {% csrf_token %}
 
               <div class="register-input-box">
-                <p3>별명 </p3><input id="register-input-name" {{form.villain_name}}
-
-                <p3>소속 </p3>
-                <input id="register-input-univ" {{form.univ}}
-                <input id="register-input-major" {{form.major}}
-
-                <p3>수업 </p3><input id="register-input-classname" {{form.class_name}}
+                <div class = "input-detail-box">
+                  <p3>별명 </p3>
+                  <input id="register-input-name" {{form.villain_name}}
+                </div>
+                <div class = "input-detail-box">
+                  <p3>소속 </p3>
+                  <input id="register-input-univ" {{form.univ}}
+                  <input id="register-input-major" {{form.major}}
+                </div>
+                <div class = "input-detail-box">
+                  <p3>수업 </p3>
+                  <input id="register-input-classname" {{form.class_name}}
+                </div>
               </div>
 
               <hr>
