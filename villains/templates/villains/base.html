@@ -16,6 +16,7 @@
 
   <body>
 
+<<<<<<< HEAD
     <header>
       <div class = "menuTab">
         {% if user.is_active %}
@@ -34,10 +35,36 @@
           <a href="{% url 'index' %}" title  ="메인화면"> <img src = "{% static 'villains/image/villains_logo.png' %}" class = "logoImage"><img/> </a>
         </div>
     </header>
+=======
+    <!-- 블랙박스 -->
+    <div class="blackBox">
+
+      <header>
+          {% if user.is_active %}
+          <a href="{% url 'register_villain' %}" title  ="글쓰기" class="register_villain">빌런 등록</a>
+          {% endif %}
+
+
+          {% if user.is_active %}
+            {{user.username}}님 환영합니다
+            <a href="{% url 'logout' %}" title  ="로그아웃">로그아웃</a>
+          {% else %}
+            <a href="{% url 'login' %}" title  ="로그인">로그인 &nbsp;</a>
+            <a href="{% url 'registration_register' %}" title  ="회원가입">회원가입</a><br>
+          {% endif %}
+
+          <div class ="title">
+            <a class="header-menu" href="{% url 'index' %}" title  ="메인화면"> <img src = "{% static 'villains/image/villains_logo.png' %}" class = "logoImage"><img/> </a>
+          </div>
+      </header>
+
+    </div>
+>>>>>>> 8a696529c9d01886e8340562b21ec9b353d37b65
 
     <!-- 내용이 들어갈 부분 -->
     {% block content %}
     {% endblock %}
+
     <footer>
       Copyright (c) <span>KWEB</span> All Rights Reserved.
     </footer>

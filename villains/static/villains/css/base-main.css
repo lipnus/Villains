@@ -3,51 +3,74 @@
 
 body{
     /* font-family: 'Nanum Barun Gothic', sans-serif; */
-    position:relative;
-    margin : 0 0 0 0;
-    min-height:100%;
+    margin : 0;
+}
+
+.blackbox{
+  background: #000000;
+  margin-top: -10px;
+  height: 150px;
+  width: 100vw;
 }
 
 header{
-    margin-top:10px;
+    padding-top: 10px;
 }
+
+.header-menu{
+  #color: #ffffff;
+}
+
+header a{
+  color: #ffffff;
+}
+
 .main{
     margin-left:auto;
     margin-right:auto;
     width:808px;
     height:auto;
     line-height:30px;
-    padding-bottom:170px;
 }
+
 a{
     text-decoration: none;
 }
+
 header{
     margin-left:auto;
     margin-right:auto;
     text-align:right;
     width:808px;
+    color:#FFFFFF;
 }
+
 .register_villain{
     color:#FF3A1A;
     padding-right:10px;
 }
+
+
 #headerButton{
     color:black;
 }
+
 .title{
     margin-left:-10px;
-    padding-top:40px;
-    padding-bottom:20px;
+    padding-top:60px;
+    padding-bottom:30px;
     text-align:left;
 }
+
 .logoImage{
     width:150px;
     height:auto;
 }
+
 .highlight{
     color:#FF3A1A;
 }
+
 .detail{
     width:800px;
     height:400px;
@@ -63,12 +86,10 @@ header{
     position: absolute;
     right:0px;
 }
-.logon{
-    margin-left:10px;
-}
+
 footer{
     /* position:absolute; */
-    position:absolute;
+    margin-top: 150px;
     bottom:0px;
     width:100%;
     text-align: center;
@@ -80,17 +101,15 @@ footer{
 footer>span{
     color:#FF3A1A;
 }
+
 @media(max-width:810px){
     header{
-        width:93vw;
+        width:96vw;
     }
     .main{
-        width:94vw;
+        width:98vw;
     }
     .title{
         margin-left:0;
-    }
-    .menuTab{
-        margin-right:2vw;
     }
 }
