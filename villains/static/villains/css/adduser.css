@@ -26,7 +26,7 @@ body{
 }
 
 .join-inputbox {
-  color: #837e7c;
+  color: #909090;
   font-size: 2ex;
   padding: 20px;
   width: 370px;
@@ -37,15 +37,20 @@ body{
   display: block;
 }
 
-*:focus {
-    outline: none;
+/* 회원가입 인풋 플레이스홀더 */
+.join-inputbox::-webkit-input-placeholder { /* Webkit browsers */
+  color: #d3d3d3;
+  font-size: 14px;
 }
+
+/* *:focus {
+    outline: none;
+} */
 
 .join-inputbox:focus {
     outline: none !important;
     border:1px solid #e7471e;
 }
-
 
 .join-button-container {
   display: block;
@@ -111,10 +116,11 @@ footer{
   line-height: 100px;
   margin-top:50px;
 }
+
 footer>span{
   color:#FF3A1A;
 }
+
 .univ_email_error{
   display:none;
 }
-

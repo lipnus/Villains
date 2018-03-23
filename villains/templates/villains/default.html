@@ -2,10 +2,14 @@
 {% block content %}
 {% load staticfiles %}
 <link rel="stylesheet" type="text/css" href="{% static 'villains/css/default.css' %}">
+
+<!-- 상단부 검은영역을 위한 css -->
+<link rel="stylesheet" type="text/css" href="{% static 'villains/css/base-main.css' %}">
+
 <script type = "text/javascript" src="{% static 'villains/js/searching.js' %}"></script>
 
-    <div class="main">
-      <div class ="inputBox">
+    <div class="input-background">
+      <div class="inputBox">
       <select name="searchType" class ="searchType">
         <option value="name">별명</option>
         <option value="univ">학교</option>
@@ -13,8 +17,11 @@
         <option value="class_name">수업명</option>
         <option value="content">내용</option>
       </select>
-      <input type="text" class="searchText" placeholder="키워드를 입력하세요">
-    </div>
+      <input type="text" class="searchText" placeholder="검색어를 입력하세요">
+      </div>
+    </dlv>
+
+    <div class="main">
 
       <div id="ListBlock" class ="searchBlock"></div> <!--검색 결과가 나타나는 div-->
       <div id="ListBlock" class="originalBlock"> <!--모든 빌런들이 나타나는 초기 div-->

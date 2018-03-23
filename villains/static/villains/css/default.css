@@ -5,6 +5,7 @@
     margin-right:-5px;
 }
 #VillainBlock{
+    border-radius: 3px;
     display:inline-block;
     position: relative;
     width:260px;
@@ -15,20 +16,38 @@
 
 #villainBlock>a{
     display: block;
+    color: #606060;
     width:100%;
     height:100%;
 }
+
 .originalBlock{
     display:block;
 }
+
 .searchBlock{
     display:none;
 }
-.inputBox{
-    margin-bottom:30px;
-    margin-top:20px;
+
+
+.input-background{
+  background: #000000;
+  height: 100px;
 }
-input{
+
+.inputBox{
+    width: 800px;
+    padding-bottom:40px;
+    margin-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.searchText{
+    outline: none !important;
+    border:1px solid #909090;
+
     width:680px;
     height:50px;
     background-image : url('../image/magnifier.png');
@@ -38,25 +57,39 @@ input{
     font-size:15px;
     padding-left:15px;
 }
+
+.searchText:focus{
+  outline: none !important;
+  border:1px solid #e7471e;
+
+  -webkit-transition: all 0.50s ease-in-out;
+  -moz-transition: all 0.50s ease-in-out;
+  -ms-transition: all 0.50s ease-in-out;
+  -o-transition: all 0.50s ease-in-out;
+}
+
 select{
     width:100px;
     height:50px;
     font-size:15px;
     margin-right:4px;
 }
+
 .villainName{
     display: inline-block;
     position:absolute;
-    bottom:5px;
-    left:10px;
-    font-size:20px;
+    bottom:8px;
+    left:12px;
+    font-size:22px;
 }
+
 .villainBomb{
     display: inline-block;
     position: absolute;
-    bottom:5px;
-    right: 10px;
+    bottom:8px;
+    right: 12px;
 }
+
 .villainClass{
     position: absolute;
     top:5px;

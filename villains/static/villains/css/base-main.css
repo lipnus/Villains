@@ -3,12 +3,28 @@
 
 body{
     /* font-family: 'Nanum Barun Gothic', sans-serif; */
-    margin : 0 0 0 0;
+    margin : 0;
+}
+
+.blackbox{
+  background: #000000;
+  margin-top: -10px;
+  height: 150px;
+  width: 100vw;
 }
 
 header{
-    margin-top:10px;
+    padding-top: 10px;
 }
+
+.header-menu{
+  #color: #ffffff;
+}
+
+header a{
+  color: #ffffff;
+}
+
 .main{
     margin-left:auto;
     margin-right:auto;
@@ -16,35 +32,45 @@ header{
     height:auto;
     line-height:30px;
 }
+
 a{
     text-decoration: none;
 }
+
 header{
     margin-left:auto;
     margin-right:auto;
     text-align:right;
     width:808px;
+    color:#FFFFFF;
 }
+
 .register_villain{
     color:#FF3A1A;
     padding-right:10px;
 }
+
+
 #headerButton{
     color:black;
 }
+
 .title{
     margin-left:-10px;
-    padding-top:40px;
-    padding-bottom:20px;
+    padding-top:60px;
+    padding-bottom:30px;
     text-align:left;
 }
+
 .logoImage{
     width:150px;
     height:auto;
 }
+
 .highlight{
     color:#FF3A1A;
 }
+
 .detail{
     width:800px;
     height:400px;
@@ -60,9 +86,7 @@ header{
     position: absolute;
     right:0px;
 }
-.logon{
-    margin-left:10px;
-}
+
 footer{
     /* position:absolute; */
     margin-top: 150px;
@@ -77,6 +101,7 @@ footer{
 footer>span{
     color:#FF3A1A;
 }
+
 @media(max-width:810px){
     header{
         width:96vw;

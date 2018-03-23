@@ -16,27 +16,34 @@
 
   <body>
 
-    <header>
-        {% if user.is_active %}
-        <a href="{% url 'register_villain' %}" title  ="글쓰기" class="register_villain">빌런 등록</a>
-        {% endif %}
-        {% if user.is_active %}
-          {{user.username}} 님 환영합니다
-          <a href="{% url 'logout' %}" title  ="로그아웃" class = "logon">로그아웃</a>
+    <!-- 블랙박스 -->
+    <div class="blackBox">
 
-        {% else %}
-          <a href="{% url 'login' %}" title  ="로그인" class = "logon">로그인 &nbsp;</a>
-          <a href="{% url 'registration_register' %}" title  ="회원가입">회원가입</a><br>
-        {% endif %}
+      <header>
+          {% if user.is_active %}
+          <a href="{% url 'register_villain' %}" title  ="글쓰기" class="register_villain">빌런 등록</a>
+          {% endif %}
 
-        <div class ="title">
-          <a href="{% url 'index' %}" title  ="메인화면"> <img src = "{% static 'villains/image/villains_logo.png' %}" class = "logoImage"><img/> </a>
-        </div>
-    </header>
+
+          {% if user.is_active %}
+            {{user.username}}님 환영합니다
+            <a href="{% url 'logout' %}" title  ="로그아웃">로그아웃</a>
+          {% else %}
+            <a href="{% url 'login' %}" title  ="로그인">로그인 &nbsp;</a>
+            <a href="{% url 'registration_register' %}" title  ="회원가입">회원가입</a><br>
+          {% endif %}
+
+          <div class ="title">
+            <a class="header-menu" href="{% url 'index' %}" title  ="메인화면"> <img src = "{% static 'villains/image/villains_logo.png' %}" class = "logoImage"><img/> </a>
+          </div>
+      </header>
+
+    </div>
 
     <!-- 내용이 들어갈 부분 -->
     {% block content %}
     {% endblock %}
+
     <footer>
       Copyright (c) <span>KWEB</span> All Rights Reserved.
     </footer>
