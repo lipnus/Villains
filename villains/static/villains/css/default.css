@@ -1,15 +1,11 @@
 @charset "utf-8";
-<<<<<<< HEAD
-.VillainBlock{
-=======
 
 #ListBlock{
     margin-left:-5px;
     margin-right:-5px;
 }
-#VillainBlock{
+.villainBlock{
     border-radius: 3px;
->>>>>>> 8a696529c9d01886e8340562b21ec9b353d37b65
     display:inline-block;
     position: relative;
     width:260px;

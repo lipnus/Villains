@@ -5,6 +5,7 @@
 
 <!-- 상단부 검은영역을 위한 css -->
 <link rel="stylesheet" type="text/css" href="{% static 'villains/css/base-main.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'villains/css/default.css' %}">
 
 <script type = "text/javascript" src="{% static 'villains/js/searching.js' %}"></script>
 
@@ -19,10 +20,9 @@
       </select>
       <input type="text" class="searchText" placeholder="검색어를 입력하세요">
       </div>
-    </dlv>
+    </div>
 
     <div class="main">
-
       <div class="ListBlock searchBlock"></div> <!--검색 결과가 나타나는 div-->
       <div class="ListBlock originalBlock"> <!--모든 빌런들이 나타나는 초기 div-->
           {% for villain in villainList %}
