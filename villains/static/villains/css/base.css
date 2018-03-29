@@ -67,13 +67,11 @@ header{
     margin-left:10px;
 }
 footer{
-    /* position:absolute; */
     position:absolute;
     bottom:0px;
     width:100%;
     text-align: center;
     background-color: #EDEDED;
-    height:150px;
     line-height: 100px;
     font-size: 0.7em;
 }

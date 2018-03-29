@@ -89,8 +89,7 @@ header{
 }
 
 footer{
-    /* position:absolute; */
-    margin-top: 150px;
+    position:absolute;
     bottom:0px;
     width:100%;
     text-align: center;
@@ -108,7 +107,8 @@ footer>span{
         width:96vw;
     }
     .main{
-        width:98vw;
+        width:96vw;
+        margin-top:15px;
     }
     .title{
         margin-left:0;

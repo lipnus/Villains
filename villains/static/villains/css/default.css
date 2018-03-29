@@ -10,7 +10,7 @@
     position: relative;
     width:260px;
     height: 200px;
-    margin:2.5px 5px 2.5px 5px;
+    margin:2.5px 1px 2.5px 1px;
     font-size:15px;
     background-color: #CFCFCF;
 }
@@ -99,7 +99,10 @@ select{
 }
 
 @media(max-width:810px){
-    input{
+    .inputBox{
+        width:100%;
+    }
+    .searchText{
         width:74vw;
     }
     select{
@@ -108,7 +111,7 @@ select{
     }
     .villainBlock{
         width:45vw;
-        margin: 0.5vw 1vw 0.5vw 1vw;
+        margin: 0.5vw 1.5vw 0.5vw 1.5vw;
     }
     .ListBlock{
         font-size:0px;

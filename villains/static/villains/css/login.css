@@ -3,8 +3,9 @@
 body{
   background: #f1f1f1;
   font-family: 'Nanum Barun Gothic', sans-serif;
+  height:100%;
+  margin:0;
 }
-
 .login-box {
   width: 650px;
   margin: auto;
@@ -115,9 +116,9 @@ footer>span{
     width:100%;
   }
   .login-box{
-    width:calc(100% - 20px);
-    margin-left:10px;
-    margin-right:10px;
+    width:calc(100% - 30px);
+    margin-left:15px;
+    margin-right:15px;
   }
   .login-title{
     width:100%;

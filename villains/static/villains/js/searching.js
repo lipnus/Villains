@@ -1,10 +1,3 @@
-$(document).ready(function(){
-    if($('body').height()>window.screen.height){
-        $('footer').css('position','static');
-    }
-    searchAjax();
-  });
-
 function searchAjax(){
     $('.searchText').keyup(function(){
         var text = $('.searchText').val();
