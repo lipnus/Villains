@@ -108,6 +108,7 @@ select{
     select{
         width:15vw;
         margin-right:2vw;
+        margin-left:2.5vw;
     }
     .villainBlock{
         width:45vw;

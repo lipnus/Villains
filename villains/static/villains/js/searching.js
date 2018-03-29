@@ -1,3 +1,6 @@
+$(document).ready(function(){
+    searchAjax();
+  });
 function searchAjax(){
     $('.searchText').keyup(function(){
         var text = $('.searchText').val();
