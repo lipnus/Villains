@@ -117,4 +117,7 @@ select{
     .ListBlock{
         font-size:0px;
     }
+    .searchBlock{
+        font-size:18px;
+    }
 }
