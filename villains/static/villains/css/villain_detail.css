@@ -75,7 +75,6 @@
     cursor: pointer;
 }
 .detailInfo{
-    width:540px;
     display:inline-block;
 }
 .detailBomb img{
@@ -84,12 +83,15 @@
 }
 
 .detailFooter{
+    position: relative;
     width:690px;
     padding-left:110px;
     color:#CFCFCF;
     font-size:15px;
 }
 .detailFooterButton{
+    position: absolute;
+    right:0px;
     width:70px;
     display: inline-block;
     text-align: right;
