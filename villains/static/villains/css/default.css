@@ -5,6 +5,7 @@
     margin-right:-5px;
 }
 .villainBlock{
+    background-image:url(../image/contentBox.png);
     border-radius: 3px;
     display:inline-block;
     position: relative;
