@@ -40,8 +40,11 @@
 
        <div class = "detailContent">{{villain.content}}</div>
        <div class = "detailFooter">
-        <div class = "detailInfo">
-           {{villain.writter_id}} {{villain.update_date}} 작성
+           {% if user.username == villain.writter_id %}
+            {{villain.writter_id}} 
+           {% endif %}
+           <div class = "detailInfo">
+           {{villain.update_date}} 작성
           </div>
            {% if user.username == villain.writter_id %}
            <div class = "detailFooterButton"><a href="{% url 'villain_modify' pk=villain.pk %}">수정</a> / <a href = "{% url 'villain_delete' pk=villain.pk %}">삭제</a></div>
