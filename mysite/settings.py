@@ -125,7 +125,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 ACCOUNT_ACTIVATION_DAYS = 1
 
-
+REGISTRATION_OPEN=True
 # Email Activation
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

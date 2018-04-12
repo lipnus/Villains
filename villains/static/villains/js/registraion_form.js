@@ -1,5 +1,9 @@
 function submit(){
     var email = document.getElementsByName('email')[0].value;
+    document.getElementsByClassName('univ_email_error')[0].style.display="none";
+    document.getElementsByClassName('form')[0].submit();
+    return;
+    /*
     if (email.match('@korea.ac.kr')=='@korea.ac.kr'){
         document.getElementsByClassName('univ_email_error')[0].style.display="none";
         document.getElementsByClassName('form')[0].submit();
@@ -14,4 +18,5 @@ function submit(){
         document.getElementsByClassName('univ_email_error')[0].style.display="block";
         return;
     }
+    */
 }

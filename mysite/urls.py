@@ -19,6 +19,9 @@ from django.conf.urls import include,url
 from villains import views
 from registration.backends.default.views import RegistrationView
 from registration.forms import RegistrationFormUniqueEmail
+from registration.backends.hmac.views import RegistrationView
+
+class RegistrationViewUniqueEmail(RegistrationView): form_class = RegistrationFormUniqueEmail
 
 
 urlpatterns = [
@@ -33,8 +36,6 @@ urlpatterns = [
     url(r'^agree$', views.agree, name='agree'),
     url(r'^delete/(?P<pk>[0-9]+)/$', views.delete, name='villain_delete'),
     url(r'^search$', views.villainSearch, name='villainSearch'),
-    url(r'^accounts/register/$',
-        RegistrationView.as_view(form_class=RegistrationFormUniqueEmail),
-        name='registration_register'),
+    url(r'^accounts/register/$', RegistrationViewUniqueEmail.as_view(), name='registration_register'),
     url(r'^accounts/', include('registration.backends.hmac.urls')),
 ]
