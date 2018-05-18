@@ -8,6 +8,7 @@ from django.contrib.auth.models import User
 from django.conf import settings
 
 class Villain(models.Model):
+    is_update = models.IntegerField(default=-1)
     writter_id = models.CharField(max_length = 24) # models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     villain_name = models.CharField(max_length = 24)
     univ = models.CharField(max_length = 24)
@@ -36,6 +37,7 @@ class Villain(models.Model):
 
     #날짜생성 후 데이터베이스 저장
     def generate(self):
+        self.is_update+=1
         self.update_date = timezone.now()
         self.save()  #Object를 데이터베이스에 저장
 

@@ -42,7 +42,12 @@
            {% if user.username == villain.writter_id %}
             {{villain.writter_id}} 
            {% endif %}
-           {{villain.update_date}} 작성
+           {{villain.update_date}}
+           {% if villain.is_update == 0 %}
+            <span>작성</span>
+           {% else %}
+            <span>수정</span>
+           {% endif %}
            {% if user.username == villain.writter_id %}
            <div class = "detailFooterButton"><a href="{% url 'villain_modify' pk=villain.pk %}">수정</a> / <a href = "{% url 'villain_delete' pk=villain.pk %}">삭제</a></div>
            {% endif %}

@@ -6,7 +6,6 @@ function searchAjax(){
         var text = $('.searchText').val();
         var type = $('.searchType').val();
         if(text!=''){
-            
             $.ajax({
                 type: "GET",
                 url: "/search",
